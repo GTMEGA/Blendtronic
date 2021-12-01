@@ -1,11 +1,11 @@
-package com.myname.mymodid.mixinplugin;
+package com.github.gtmega.blendtronic.mixinplugin;
 
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.myname.mymodid.mixinplugin.TargetedMod.*;
+import static com.github.gtmega.blendtronic.mixinplugin.TargetedMod.*;
 
 public enum Mixin {
 
@@ -15,10 +15,8 @@ public enum Mixin {
     // Exception: Tags.java, as long as it is used for Strings only!
     //
 
-    // Replace with your own mixins:
-    ItemEditableBookMixin("minecraft.ItemEditableBookMixin", Side.BOTH, VANILLA),
-    // You may also require multiple mods to be loaded if your mixin requires both
-    GT_Block_Ores_AbstractMixin("gregtech.GT_Block_Ores_AbstractMixin", GREGTECH, VANILLA);
+    // Want an enum? Ok, here, have an enum.
+    PlaceholderEnum("", Side.BOTH, VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;

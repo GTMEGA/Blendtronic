@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.github.gtmega.blendtronic;
 
 import cpw.mods.fml.common.event.*;
 

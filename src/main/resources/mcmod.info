@@ -2,13 +2,13 @@
     {
       "modid": "${modId}",
       "name": "${modName}",
-      "description": "An example mod for Minecraft 1.7.10 with Forge focussed on a stable setup.",
+      "description": "GTMEGA's SpongeMixins mod",
       "version": "${modVersion}",
       "mcversion": "${minecraftVersion}",
-      "url": "https://github.com/SinTh0r4s/MyMod",
+      "url": "https://github.com/GTMEGA/Blendtronic",
       "updateUrl": "",
-      "authorList": ["SinTho0r4s"],
-      "credits": "",
+      "authorList": ["SirFell"],
+      "credits": ["SinTh0r4s", "TheElan", "basdxz"],
       "logoFile": "",
       "screenshots": [],
       "dependencies": []

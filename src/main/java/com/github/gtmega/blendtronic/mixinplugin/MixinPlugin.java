@@ -1,6 +1,6 @@
-package com.myname.mymodid.mixinplugin;
+package com.github.gtmega.blendtronic.mixinplugin;
 
-import com.myname.mymodid.Tags;
+import com.github.gtmega.blendtronic.Tags;
 import net.minecraft.launchwrapper.Launch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.myname.mymodid.mixinplugin.TargetedMod.VANILLA;
+import static com.github.gtmega.blendtronic.mixinplugin.TargetedMod.VANILLA;
 import static java.nio.file.Files.walk;
 
 public class MixinPlugin implements IMixinConfigPlugin {

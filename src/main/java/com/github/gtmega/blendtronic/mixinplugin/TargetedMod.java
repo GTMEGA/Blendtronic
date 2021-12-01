@@ -1,4 +1,4 @@
-package com.myname.mymodid.mixinplugin;
+package com.github.gtmega.blendtronic.mixinplugin;
 
 import com.google.common.io.Files;
 
@@ -13,8 +13,7 @@ public enum TargetedMod {
     //
 
     // Replace with your injected mods here, but always keep VANILLA:
-    VANILLA("Minecraft", "unused", true),
-    GREGTECH("GregTech", "gregtech", false);
+    VANILLA("Minecraft", "unused", true);
 
     public final String modName;
     public final String jarNamePrefixLowercase;
