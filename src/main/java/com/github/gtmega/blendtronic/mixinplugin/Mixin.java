@@ -19,6 +19,7 @@ public enum Mixin {
     GuiGameOverInitGuiMixin("minecraft.GuiGameOverInitGuiMixin", Side.CLIENT, VANILLA),
     TesselatorCardinalBuffIndexMixin("minecraft.TesselatorCardinalBuffIndexMixin", Side.CLIENT, VANILLA),
     WorldGetBlockLightValueNPEMixin("minecraft.WorldGetBlockLightValueNPEMixin", Side.BOTH, VANILLA),
+    WorldUnsafeGetBlockMixin("minecraft.WorldUnsafeGetBlockMixin", Side.BOTH, VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;

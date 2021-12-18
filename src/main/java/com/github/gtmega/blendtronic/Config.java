@@ -12,6 +12,7 @@ public class Config {
         public static final boolean guiGameOverInitGuiMixin = true;
         public static final boolean tesselatorCardinalBuffIndexMixin = true;
         public static final boolean worldGetBlockLightValueNpeMixin = true;
+        public static final boolean worldUnsafeGetBlockMixin = true;
     }
 
     private static class Categories {
@@ -23,6 +24,7 @@ public class Config {
     public static boolean guiGameOverInitGuiMixin = Defaults.guiGameOverInitGuiMixin;
     public static boolean tesselatorCardinalBuffIndexMixin = Defaults.tesselatorCardinalBuffIndexMixin;
     public static boolean worldGetBlockLightValueNpeMixin = Defaults.worldGetBlockLightValueNpeMixin;
+    public static boolean worldUnsafeGetBlockMixin = Defaults.worldUnsafeGetBlockMixin;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -43,6 +45,10 @@ public class Config {
         Property worldGetBlockLightValueNpeMixinProperty = configuration.get(Categories.minecraft, "worldGetBlockLightValueNpeMixin",
                 Defaults.worldGetBlockLightValueNpeMixin, "[BOTH] Fixes NullPointerExceptions caused by getBlockLightValue returning NULL.");
         worldGetBlockLightValueNpeMixin = worldGetBlockLightValueNpeMixinProperty.getBoolean();
+
+        Property worldUnsafeGetBlockMixinProperty = configuration.get(Categories.minecraft, "worldUnsafeGetBlockMixin",
+                Defaults.worldUnsafeGetBlockMixin, "[BOTH] Fixes Mojang's null-unsafe World.class getBlock.");
+        worldUnsafeGetBlockMixin = worldUnsafeGetBlockMixinProperty.getBoolean();
 
         if(configuration.hasChanged()) {
             configuration.save();
