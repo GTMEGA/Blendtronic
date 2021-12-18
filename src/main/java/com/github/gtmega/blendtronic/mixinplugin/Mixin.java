@@ -15,6 +15,9 @@ import static com.github.gtmega.blendtronic.mixinplugin.TargetedMod.*;
 public enum Mixin {
 
     // Minecraft
+    EntityLivingDropLootOnDespawnMixin("minecraft.EntityLivingDropLootOnDespawnMixin", Side.BOTH, VANILLA),
+    GuiGameOverInitGuiMixin("minecraft.GuiGameOverInitGuiMixin", Side.CLIENT, VANILLA),
+    WorldGetBlockLightValueNPEMixin("minecraft.WorldGetBlockLightValueNPEMixin", Side.BOTH, VANILLA),
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
