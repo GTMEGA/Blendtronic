@@ -17,6 +17,7 @@ public enum Mixin {
     // Minecraft
     EntityLivingDropLootOnDespawnMixin("minecraft.EntityLivingDropLootOnDespawnMixin", Side.BOTH, VANILLA),
     GuiGameOverInitGuiMixin("minecraft.GuiGameOverInitGuiMixin", Side.CLIENT, VANILLA),
+    TesselatorCardinalBuffIndexMixin("minecraft.TesselatorCardinalBuffIndexMixin", Side.CLIENT, VANILLA),
     WorldGetBlockLightValueNPEMixin("minecraft.WorldGetBlockLightValueNPEMixin", Side.BOTH, VANILLA),
 
     public final String mixinClass;
