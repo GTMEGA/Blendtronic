@@ -24,7 +24,7 @@ import static java.nio.file.Files.walk;
 
 public class MixinPlugin implements IMixinConfigPlugin {
 
-    private static final Logger LOG = LogManager.getLogger(Tags.MODID + " mixins");
+    private static final Logger LOG = LogManager.getLogger(Tags.MODNAME + " mixins");
     private static final Path MODS_DIRECTORY_PATH = new File(Launch.minecraftHome, "mods/").toPath();
 
     @Override
