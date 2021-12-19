@@ -20,6 +20,9 @@ public class TesselatorCardinalBuffIndexMixin {
      */
     @Inject(method = "getVertexState", at = @At("HEAD"), cancellable = true)
     public void getVertexStateNatural0Safe(float x, float y, float z, CallbackInfoReturnable<TesselatorVertexState> cir){
-        if(this.rawBufferIndex <= 0) cir.setReturnValue(null); cir.cancel();
+        if(this.rawBufferIndex <= 0) {
+            cir.setReturnValue(null);
+            cir.cancel();
+        }
     }
 }

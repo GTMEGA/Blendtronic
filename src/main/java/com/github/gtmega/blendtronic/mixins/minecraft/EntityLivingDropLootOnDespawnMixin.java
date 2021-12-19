@@ -35,7 +35,7 @@ public class EntityLivingDropLootOnDespawnMixin {
      * Drop Picked Loot on despawn.
      */
     @Inject(method = "despawnEntity()V", at = @At(value="INVOKE", target="Lnet/minecraft/entity/EntityLiving;setDead()V"))
-    public void despawnEntity_dropPickedLoot(CallbackInfo ci) {
+    public void despawnEntitydropPickedLoot(CallbackInfo ci) {
         this.dropEquipment(false, 0);
     }
 }

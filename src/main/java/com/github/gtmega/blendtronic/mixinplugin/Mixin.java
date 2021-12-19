@@ -15,11 +15,11 @@ import static com.github.gtmega.blendtronic.mixinplugin.TargetedMod.*;
 public enum Mixin {
 
     // Minecraft
-    EntityLivingDropLootOnDespawnMixin("minecraft.EntityLivingDropLootOnDespawnMixin", Side.BOTH, VANILLA),
-    GuiGameOverInitGuiMixin("minecraft.GuiGameOverInitGuiMixin", Side.CLIENT, VANILLA),
-    TesselatorCardinalBuffIndexMixin("minecraft.TesselatorCardinalBuffIndexMixin", Side.CLIENT, VANILLA),
-    WorldGetBlockLightValueNPEMixin("minecraft.WorldGetBlockLightValueNPEMixin", Side.BOTH, VANILLA),
-    WorldUnsafeGetBlockMixin("minecraft.WorldUnsafeGetBlockMixin", Side.BOTH, VANILLA);
+    ENTITY_LIVING_DROP_LOOT_ON_DESPAWN_MIXIN("minecraft.EntityLivingDropLootOnDespawnMixin", Side.BOTH, VANILLA),
+    GUI_GAME_OVER_INIT_GUI_MIXIN("minecraft.GuiGameOverInitGuiMixin", Side.CLIENT, VANILLA),
+    TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN("minecraft.TesselatorCardinalBuffIndexMixin", Side.CLIENT, VANILLA),
+    WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN("minecraft.WorldGetBlockLightValueNPEMixin", Side.BOTH, VANILLA),
+    WORLD_UNSAFE_GET_BLOCK_MIXIN("minecraft.WorldUnsafeGetBlockMixin", Side.BOTH, VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
@@ -29,12 +29,6 @@ public enum Mixin {
         this.mixinClass = mixinClass;
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = side;
-    }
-
-    Mixin(String mixinClass, TargetedMod... targetedMods) {
-        this.mixinClass = mixinClass;
-        this.targetedMods = Arrays.asList(targetedMods);
-        this.side = Side.BOTH;
     }
 
     public boolean shouldLoad(List<TargetedMod> loadedMods) {

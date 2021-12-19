@@ -6,51 +6,51 @@ import net.minecraftforge.common.config.Property;
 import java.io.File;
 
 public class Config {
-    
+
     private static class Defaults {
-        public static final boolean entityLivingDropLootOnDespawnMixin = true;
-        public static final boolean guiGameOverInitGuiMixin = true;
-        public static final boolean tesselatorCardinalBuffIndexMixin = true;
-        public static final boolean worldGetBlockLightValueNpeMixin = true;
-        public static final boolean worldUnsafeGetBlockMixin = true;
+        public static final boolean ENTITY_LIVING_DROP_LOOT_ON_DESPAWN_MIXIN = true;
+        public static final boolean GUI_GAME_OVER_INIT_GUI_MIXIN = true;
+        public static final boolean TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN = true;
+        public static final boolean WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN = true;
+        public static final boolean WORLD_UNSAFE_GET_BLOCK_MIXIN = true;
     }
 
     private static class Categories {
-        public static final String general = "general";
-        public static final String minecraft = "minecraft";
+        public static final String GENERAL = "general";
+        public static final String MINECRAFT = "minecraft";
     }
 
-    public static boolean entityLivingDropLootOnDespawnMixin = Defaults.entityLivingDropLootOnDespawnMixin;
-    public static boolean guiGameOverInitGuiMixin = Defaults.guiGameOverInitGuiMixin;
-    public static boolean tesselatorCardinalBuffIndexMixin = Defaults.tesselatorCardinalBuffIndexMixin;
-    public static boolean worldGetBlockLightValueNpeMixin = Defaults.worldGetBlockLightValueNpeMixin;
-    public static boolean worldUnsafeGetBlockMixin = Defaults.worldUnsafeGetBlockMixin;
+    public static boolean entityLivingDropLootOnDespawnMixin = Defaults.ENTITY_LIVING_DROP_LOOT_ON_DESPAWN_MIXIN;
+    public static boolean guiGameOverInitGuiMixin = Defaults.GUI_GAME_OVER_INIT_GUI_MIXIN;
+    public static boolean tesselatorCardinalBuffIndexMixin = Defaults.TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN;
+    public static boolean worldGetBlockLightValueNpeMixin = Defaults.WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN;
+    public static boolean worldUnsafeGetBlockMixin = Defaults.WORLD_UNSAFE_GET_BLOCK_MIXIN;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
         configuration.load();
 
-        Property entityLivingDropLootOnDespawnMixinProperty = configuration.get(Categories.minecraft, "entityLivingDropLootOnDespawnMixin",
-                Defaults.entityLivingDropLootOnDespawnMixin, "[BOTH] Allows mobs that picked up player loot to despawn and drop that loot.");
+        Property entityLivingDropLootOnDespawnMixinProperty = configuration.get(Categories.MINECRAFT, "entityLivingDropLootOnDespawnMixin",
+                Defaults.ENTITY_LIVING_DROP_LOOT_ON_DESPAWN_MIXIN, "[BOTH] Allows mobs that picked up player loot to despawn and drop that loot.");
         entityLivingDropLootOnDespawnMixin = entityLivingDropLootOnDespawnMixinProperty.getBoolean();
 
-        Property guiGameOverInitGuiMixinProperty = configuration.get(Categories.minecraft, "guiGameOverInitGuiMixin",
-                Defaults.guiGameOverInitGuiMixin, "[CLIENT] Resets GameOver ui after switching to fullscreen to fix buttons disabling.");
+        Property guiGameOverInitGuiMixinProperty = configuration.get(Categories.MINECRAFT, "guiGameOverInitGuiMixin",
+                Defaults.GUI_GAME_OVER_INIT_GUI_MIXIN, "[CLIENT] Resets GameOver ui after switching to fullscreen to fix buttons disabling.");
         guiGameOverInitGuiMixin = guiGameOverInitGuiMixinProperty.getBoolean();
 
-        Property tesselatorCardinalBuffIndexMixinProperty = configuration.get(Categories.minecraft, "tesselatorCardinalBuffIndexMixin",
-                Defaults.tesselatorCardinalBuffIndexMixin, "[CLIENT] Fixes crash when tesselator buffer index becomes negative or zero.");
+        Property tesselatorCardinalBuffIndexMixinProperty = configuration.get(Categories.MINECRAFT, "tesselatorCardinalBuffIndexMixin",
+                Defaults.TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN, "[CLIENT] Fixes crash when tesselator buffer index becomes negative or zero.");
         tesselatorCardinalBuffIndexMixin = tesselatorCardinalBuffIndexMixinProperty.getBoolean();
 
-        Property worldGetBlockLightValueNpeMixinProperty = configuration.get(Categories.minecraft, "worldGetBlockLightValueNpeMixin",
-                Defaults.worldGetBlockLightValueNpeMixin, "[BOTH] Fixes NullPointerExceptions caused by getBlockLightValue returning NULL.");
+        Property worldGetBlockLightValueNpeMixinProperty = configuration.get(Categories.MINECRAFT, "worldGetBlockLightValueNpeMixin",
+                Defaults.WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN, "[BOTH] Fixes NullPointerExceptions caused by getBlockLightValue returning NULL.");
         worldGetBlockLightValueNpeMixin = worldGetBlockLightValueNpeMixinProperty.getBoolean();
 
-        Property worldUnsafeGetBlockMixinProperty = configuration.get(Categories.minecraft, "worldUnsafeGetBlockMixin",
-                Defaults.worldUnsafeGetBlockMixin, "[BOTH] Fixes Mojang's null-unsafe World.class getBlock.");
+        Property worldUnsafeGetBlockMixinProperty = configuration.get(Categories.MINECRAFT, "worldUnsafeGetBlockMixin",
+                Defaults.WORLD_UNSAFE_GET_BLOCK_MIXIN, "[BOTH] Fixes Mojang's null-unsafe World.class getBlock.");
         worldUnsafeGetBlockMixin = worldUnsafeGetBlockMixinProperty.getBoolean();
 
-        if(configuration.hasChanged()) {
+        if (configuration.hasChanged()) {
             configuration.save();
         }
     }
