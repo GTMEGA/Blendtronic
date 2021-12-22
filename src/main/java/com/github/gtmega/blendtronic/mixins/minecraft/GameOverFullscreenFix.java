@@ -27,7 +27,7 @@ public class GameOverFullscreenFix {
                     ordinal = 0),
             require = 1)
     private void resetGui(List instance) {
-        field_146347_a = Math.max(field_146347_a, 19);
+        field_146347_a = Math.min(field_146347_a, 19);
         instance.clear();
     }
 
