@@ -12,7 +12,7 @@ public class NullSafeGetBlockLightMixin {
     /**
      * @author FalsePattern
      * <p>
-     * Makes Block light valyes null safe.
+     * Makes Block light values null safe.
      */
     @Redirect(method = "getBlockLightValue_do",
             at = @At(value = "INVOKE",
