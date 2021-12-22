@@ -19,7 +19,7 @@ public abstract class EntityPickupDropMixin {
     /**
      * @author FalsePattern
      * <p>
-     * Let mobs holding loot to despawn.
+     * Let mobs holding loot despawn.
      */
     @Redirect(method = "onLivingUpdate",
             at = @At(value = "FIELD",
