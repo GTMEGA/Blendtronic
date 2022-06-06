@@ -13,6 +13,7 @@ public class Config {
         public static final boolean TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN = true;
         public static final boolean WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN = true;
         public static final boolean WORLD_UNSAFE_GET_BLOCK_MIXIN = true;
+        public static final boolean WORLD_UPDATE_ENTITIES_REMOVE_ALL_MIXIN = true;
     }
 
     private static class Categories {
@@ -25,6 +26,7 @@ public class Config {
     public static boolean tesselatorCardinalBuffIndexMixin = Defaults.TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN;
     public static boolean worldGetBlockLightValueNpeMixin = Defaults.WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN;
     public static boolean worldUnsafeGetBlockMixin = Defaults.WORLD_UNSAFE_GET_BLOCK_MIXIN;
+    public static boolean WorldUpdateEntitiesRemoveAllMixin = Defaults.WORLD_UPDATE_ENTITIES_REMOVE_ALL_MIXIN;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -49,6 +51,10 @@ public class Config {
         Property worldUnsafeGetBlockMixinProperty = configuration.get(Categories.MINECRAFT, "worldUnsafeGetBlockMixin",
                 Defaults.WORLD_UNSAFE_GET_BLOCK_MIXIN, "[BOTH] Fixes Mojang's null-unsafe World.class getBlock.");
         worldUnsafeGetBlockMixin = worldUnsafeGetBlockMixinProperty.getBoolean();
+
+        Property WorldUpdateEntitiesRemoveAllMixinProperty = configuration.get(Categories.MINECRAFT, "WorldUpdateEntitiesRemoveAllMixin",
+                Defaults.WORLD_UPDATE_ENTITIES_REMOVE_ALL_MIXIN, "[BOTH] Reduces lag spike when toRemoveTileEntities is large");
+        WorldUpdateEntitiesRemoveAllMixin = WorldUpdateEntitiesRemoveAllMixinProperty.getBoolean();
 
         if (configuration.hasChanged()) {
             configuration.save();
