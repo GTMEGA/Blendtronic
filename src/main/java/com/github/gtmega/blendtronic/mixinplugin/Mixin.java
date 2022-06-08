@@ -17,7 +17,6 @@ public enum Mixin {
     // Minecraft
     ENTITY_LIVING_DROP_LOOT_ON_DESPAWN_MIXIN("minecraft.EntityPickupDropMixin", Side.BOTH, VANILLA),
     GUI_GAME_OVER_INIT_GUI_MIXIN("minecraft.GameOverFullscreenFix", Side.CLIENT, VANILLA),
-    TESSELATOR_CARDINAL_BUFF_INDEX_MIXIN("minecraft.TesselatorCardinalBuffIndexMixin", Side.CLIENT, VANILLA),
     WORLD_GET_BLOCK_LIGHT_VALUE_NPE_MIXIN("minecraft.NullSafeGetBlockLightMixin", Side.BOTH, VANILLA),
     WORLD_UNSAFE_GET_BLOCK_MIXIN("minecraft.WorldUnsafeGetBlockMixin", Side.BOTH, VANILLA),
     WORLD_UPDATE_ENTITIES_REMOVE_ALL_MIXIN("minecraft.WorldUpdateEntitiesRemoveAllMixin",Side.BOTH,VANILLA);
