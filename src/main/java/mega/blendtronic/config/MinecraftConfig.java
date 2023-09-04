@@ -1,6 +1,7 @@
 package mega.blendtronic.config;
 
 import com.falsepattern.lib.config.Config;
+import com.falsepattern.lib.config.ConfigurationManager;
 import mega.blendtronic.Tags;
 
 @Config(modid = Tags.MODID,
@@ -30,4 +31,8 @@ public class MinecraftConfig {
                     "NOTE: This needs to be enabled both serverside and clientside, otherwise it leads to a crash when trying to join multiplayer!")
     @Config.DefaultBoolean(true)
     public static boolean entityNetcodeImprovements;
+
+    static {
+        ConfigurationManager.selfInit();
+    }
 }
