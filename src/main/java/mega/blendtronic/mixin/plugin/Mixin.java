@@ -24,6 +24,7 @@ public enum Mixin implements IMixin {
     //endregion Common
     //region Client
     GameOverFullscreenFix                    (Side.CLIENT, condition(() -> guiGameOverInitGuiMixin),            "misc.GameOverFullscreenFix"),
+    OpenALNativeCrashFix                     (Side.CLIENT, condition(() -> openALNativeCrashFix),               "misc.OpenALNativeCrashFix"),
     //endregion Client
     //endregion Misc
 

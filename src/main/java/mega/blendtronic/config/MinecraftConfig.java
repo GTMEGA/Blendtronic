@@ -27,6 +27,10 @@ public class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean worldUpdateEntitiesRemoveAllMixin;
 
+    @Config.Comment("[CLIENT] Fixes an occasional game crash caused by OpenAL linking errors")
+    @Config.DefaultBoolean(true)
+    public static boolean openALNativeCrashFix;
+
     @Config.Comment("[BOTH] Makes entity netcode more precise, fixing some rubber-banding and bouncing items.\n" +
                     "NOTE: This needs to be enabled both serverside and clientside, otherwise it leads to a crash when trying to join multiplayer!")
     @Config.DefaultBoolean(true)
