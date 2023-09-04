@@ -1,5 +1,9 @@
 // Add your dependencies here
 
 dependencies {
+    //lombok
+    compileOnly("org.projectlombok:lombok:1.18.28")
+    annotationProcessor("org.projectlombok:lombok:1.18.28")
 
+    implementation("com.falsepattern:falsepatternlib-mc1.7.10:0.12.1:dev")
 }

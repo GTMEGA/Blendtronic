@@ -1,4 +1,4 @@
-package com.github.gtmega.blendtronic.mixins.minecraft;
+package mega.blendtronic.mixin.mixins.common.misc;
 
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;

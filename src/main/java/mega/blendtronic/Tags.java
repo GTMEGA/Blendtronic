@@ -1,4 +1,4 @@
-package com.github.gtmega.blendtronic;
+package mega.blendtronic;
 
 public class Tags {
 
