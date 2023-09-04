@@ -25,4 +25,9 @@ public class MinecraftConfig {
     @Config.Comment("[BOTH] Reduces lag spike when toRemoveTileEntities is large")
     @Config.DefaultBoolean(true)
     public static boolean worldUpdateEntitiesRemoveAllMixin;
+
+    @Config.Comment("[BOTH] Makes entity netcode more precise, fixing some rubber-banding and bouncing items.\n" +
+                    "NOTE: This needs to be enabled both serverside and clientside, otherwise it leads to a crash when trying to join multiplayer!")
+    @Config.DefaultBoolean(true)
+    public static boolean entityNetcodeImprovements;
 }
