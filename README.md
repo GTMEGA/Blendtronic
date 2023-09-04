@@ -1,10 +1,5 @@
-# Blendotronic [![](https://jitpack.io/v/GTMEGA/Blendtronic.svg)](https://jitpack.io/#GTMEGA/Blendtronic) [![](https://github.com/GTMEGA/Blendtronic/actions/workflows/gradle.yml/badge.svg)](https://github.com/GTMEGA/Blendtronic/actions/workflows/gradle.yml)
-#### GTMEGA's SpongeMixins mod.
-
-------
-### Features
-
-*Coming soon. Currently in active development.*
+# Blendotronic
+#### Miscellaneous patches for the MEGA modpack
 
 ------
 ### License
