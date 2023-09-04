@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.github.gtmega.blendtronic.mixins",
+  "plugin": "com.github.gtmega.blendtronic.mixinplugin.MixinPlugin",
+  "refmap": "mixins.blendtronic.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8"
+}
+
