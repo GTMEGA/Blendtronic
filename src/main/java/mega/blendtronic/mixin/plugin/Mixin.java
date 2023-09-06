@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 
 import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.avoid;
 import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.condition;
+import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.require;
 import static mega.blendtronic.config.MinecraftConfig.*;
 import static mega.blendtronic.mixin.plugin.TargetedMod.FASTCRAFT;
 
@@ -53,6 +54,9 @@ public enum Mixin implements IMixin {
     Netcode_NetHandlerPlayClientMixin        (Side.CLIENT, condition(() -> entityNetcodeImprovements),          "netcode.NetHandlerPlayClientMixin"),
     //endregion Client
     //endregion Netcode
+
+    FCCrashReportCategoryMixin(Side.COMMON, require(FASTCRAFT), "FCCrashReportCategoryMixin"),
+    FCCrashReportMixin(Side.COMMON, require(FASTCRAFT), "FCCrashReportMixin"),
 
     // @formatter:on
     ;
