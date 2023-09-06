@@ -8,8 +8,10 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.function.Predicate;
 
+import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.avoid;
 import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.condition;
 import static mega.blendtronic.config.MinecraftConfig.*;
+import static mega.blendtronic.mixin.plugin.TargetedMod.FASTCRAFT;
 
 @RequiredArgsConstructor
 public enum Mixin implements IMixin {
@@ -20,7 +22,7 @@ public enum Mixin implements IMixin {
     EntityPickupDropMixin                    (Side.COMMON, condition(() -> entityLivingDropLootOnDespawnMixin), "misc.EntityPickupDropMixin"),
     NullSafeGetBlockLightMixin               (Side.COMMON, condition(() -> worldGetBlockLightValueNpeMixin),    "misc.NullSafeGetBlockLightMixin"),
     WorldUnsafeGetBlockMixin                 (Side.COMMON, condition(() -> worldUnsafeGetBlockMixin),           "misc.WorldUnsafeGetBlockMixin"),
-    WorldUpdateEntitiesRemoveAllMixin        (Side.COMMON, condition(() -> worldUpdateEntitiesRemoveAllMixin),  "misc.WorldUpdateEntitiesRemoveAllMixin"),
+    WorldUpdateEntitiesRemoveAllMixin        (Side.COMMON, avoid(FASTCRAFT).and(condition(() -> worldUpdateEntitiesRemoveAllMixin)),  "misc.WorldUpdateEntitiesRemoveAllMixin"),
     //endregion Common
     //region Client
     GameOverFullscreenFix                    (Side.CLIENT, condition(() -> guiGameOverInitGuiMixin),            "misc.GameOverFullscreenFix"),

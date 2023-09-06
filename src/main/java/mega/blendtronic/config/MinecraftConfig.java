@@ -23,7 +23,8 @@ public class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean worldUnsafeGetBlockMixin;
 
-    @Config.Comment("[BOTH] Reduces lag spike when toRemoveTileEntities is large")
+    @Config.Comment("[BOTH] Reduces lag spike when toRemoveTileEntities is large\n" +
+                    "Note: Not used if FastCraft is present, it has its own patch for this.")
     @Config.DefaultBoolean(true)
     public static boolean worldUpdateEntitiesRemoveAllMixin;
 
