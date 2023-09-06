@@ -16,6 +16,7 @@ import java.lang.reflect.Method;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ShaderMappingFix {
+    private static final ShaderMappingFix INSTANCE = new ShaderMappingFix();
 
     private static Field field$Shaders_shaderPack;
 
@@ -42,20 +43,15 @@ public class ShaderMappingFix {
             return;
         }
 
-        //Reflection containers populated, register event handler
-        FMLCommonHandler.instance().bus().register(TheEventHandler.INSTANCE);
+        FMLCommonHandler.instance().bus().register(INSTANCE);
     }
 
-    //This is a separate class to avoid unnecessary event handler population when OF is not present
-    private static class TheEventHandler {
-        private static final TheEventHandler INSTANCE = new TheEventHandler();
-        @SubscribeEvent
-        public void onClientConnect(FMLNetworkEvent.ClientConnectedToServerEvent e) {
-            try {
-                method$BlockAliases_update.invoke(null, field$Shaders_shaderPack.get(null));
-            } catch (IllegalAccessException | InvocationTargetException ex) {
-                Share.LOG.error("Reloading shader aliases failed!", ex);
-            }
+    @SubscribeEvent
+    public void onClientConnect(FMLNetworkEvent.ClientConnectedToServerEvent e) {
+        try {
+            method$BlockAliases_update.invoke(null, field$Shaders_shaderPack.get(null));
+        } catch (IllegalAccessException | InvocationTargetException ex) {
+            Share.LOG.error("Reloading shader aliases failed!", ex);
         }
     }
 }
