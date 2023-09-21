@@ -12,6 +12,7 @@ import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.*;
 import static com.falsepattern.lib.mixin.IMixin.Side.CLIENT;
 import static com.falsepattern.lib.mixin.IMixin.Side.COMMON;
 import static mega.blendtronic.config.MinecraftConfig.*;
+import static mega.blendtronic.mixin.plugin.TargetedMod.EXTRA_UTILITIES;
 import static mega.blendtronic.mixin.plugin.TargetedMod.FASTCRAFT;
 
 @RequiredArgsConstructor
@@ -49,6 +50,10 @@ public enum Mixin implements IMixin {
     // region FastCraft
     common_fastcraft_FCCrashReportCategoryMixin(COMMON, require(FASTCRAFT), "fastcraft.CrashReportCategoryMixin"),
     common_fastcraft_FCCrashReportMixin(COMMON, require(FASTCRAFT), "fastcraft.CrashReportCategory"),
+    // endregion
+
+    // region Extra Utilities
+    common_extrautils_BlockBreakingRegistryMixin(COMMON, require(EXTRA_UTILITIES), "extrautils.BlockBreakingRegistryMixin"),
     // endregion
     ;
 

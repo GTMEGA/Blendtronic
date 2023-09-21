@@ -1,4 +1,15 @@
-// Add your dependencies here
+static def curse(curseDep) {
+    return "curse.maven:" + curseDep
+}
+
+def deobfCurse(curseDep) {
+    try {
+        return deobfMaven("https://cursemaven.com/", curse(curseDep))
+    } catch (Exception ignored) {
+        println("Failed to get dep " + curseDep + " from cursemaven. Grabbing from mirror.")
+        return deobfMaven("https://mvn.falsepattern.com/cursemaven/", curse(curseDep))
+    }
+}
 
 dependencies {
     //lombok
@@ -6,4 +17,7 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.28")
 
     implementation("com.falsepattern:falsepatternlib-mc1.7.10:0.12.1:dev")
+
+    // Extra Utilities 1.2.12
+    compileOnly(deobfCurse("extra-utilities-225561:2264383"))
 }
