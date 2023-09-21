@@ -1,15 +1,14 @@
-package mega.blendtronic.mixin.mixins.common;
+package mega.blendtronic.mixin.mixins.common.fastcraft;
 
 import lombok.val;
+import net.minecraft.crash.CrashReport;
 import org.spongepowered.asm.mixin.Dynamic;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import net.minecraft.crash.CrashReport;
-
 @Mixin(CrashReport.class)
-public abstract class FCCrashReportMixin {
+public abstract class CrashReportMixin {
     @Redirect(method = "<init>",
               at = @At(value = "INVOKE",
                        target = "Lfastcraft/H;ar(Lnet/minecraft/crash/CrashReport;Ljava/lang/String;Ljava/lang/Throwable;)V",

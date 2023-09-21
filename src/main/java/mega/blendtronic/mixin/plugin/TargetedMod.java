@@ -11,6 +11,7 @@ import static com.falsepattern.lib.mixin.ITargetedMod.PredicateHelpers.startsWit
 @RequiredArgsConstructor
 public enum TargetedMod implements ITargetedMod {
     FASTCRAFT("FastCraft", false, startsWith("fastcraft")),
+    EXTRA_UTILITIES("FastCraft", false, startsWith("extrautilities")),
     ;
 
     @Getter

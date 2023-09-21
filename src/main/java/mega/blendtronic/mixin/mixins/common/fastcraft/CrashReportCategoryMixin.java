@@ -1,14 +1,13 @@
-package mega.blendtronic.mixin.mixins.common;
+package mega.blendtronic.mixin.mixins.common.fastcraft;
 
+import net.minecraft.crash.CrashReportCategory;
 import org.spongepowered.asm.mixin.Dynamic;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import net.minecraft.crash.CrashReportCategory;
-
 @Mixin(CrashReportCategory.class)
-public abstract class FCCrashReportCategoryMixin {
+public abstract class CrashReportCategoryMixin {
     @Redirect(method = "getPrunedStackTrace",
               at = @At(value = "INVOKE",
                        target = "Lfastcraft/H;at(Ljava/lang/Thread;)[Ljava/lang/StackTraceElement;",
