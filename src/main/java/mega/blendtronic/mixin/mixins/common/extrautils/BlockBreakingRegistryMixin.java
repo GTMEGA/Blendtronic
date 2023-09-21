@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class BlockBreakingRegistryMixin {
     @Redirect(method = "setupBreaking",
               at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getRenderType()I"),
+              remap = true,
               require = 1)
     private int getRenderTypeIgnored(Block instance) {
         return 0;
