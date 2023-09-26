@@ -23,24 +23,23 @@
 
 package mega.blendtronic.mixin.mixins.common.netcode.packets;
 
-import mega.blendtronic.modules.netcode.AccuratePositionContainer;
-import mega.blendtronic.modules.netcode.AccurateRotationContainer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import mega.blendtronic.modules.netcode.AccuratePositionContainer;
+import mega.blendtronic.modules.netcode.AccurateRotationContainer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.S0CPacketSpawnPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.server.S0CPacketSpawnPlayer;
-
 @Accessors(fluent = true, chain = false)
 @Mixin(S0CPacketSpawnPlayer.class)
-public class S0CPacketSpawnPlayerMixin implements AccuratePositionContainer, AccurateRotationContainer {
+public abstract class S0CPacketSpawnPlayerMixin implements AccuratePositionContainer, AccurateRotationContainer {
     @Getter
     @Setter
     @Unique

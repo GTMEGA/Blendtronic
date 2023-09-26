@@ -23,25 +23,24 @@
 
 package mega.blendtronic.mixin.mixins.common.netcode.packets;
 
-import mega.blendtronic.modules.netcode.AccurateMobRotationContainer;
-import mega.blendtronic.modules.netcode.AccurateMotionContainer;
-import mega.blendtronic.modules.netcode.AccuratePositionContainer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import mega.blendtronic.modules.netcode.AccurateMobRotationContainer;
+import mega.blendtronic.modules.netcode.AccurateMotionContainer;
+import mega.blendtronic.modules.netcode.AccuratePositionContainer;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.S0FPacketSpawnMob;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.server.S0FPacketSpawnMob;
-
 @Accessors(fluent = true, chain = false)
 @Mixin(S0FPacketSpawnMob.class)
-public class S0FPacketSpawnMobMixin implements AccuratePositionContainer, AccurateMobRotationContainer,
+public abstract class S0FPacketSpawnMobMixin implements AccuratePositionContainer, AccurateMobRotationContainer,
         AccurateMotionContainer {
     @Getter
     @Setter

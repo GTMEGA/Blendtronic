@@ -23,19 +23,18 @@
 
 package mega.blendtronic.mixin.mixins.common.netcode.packets;
 
-import mega.blendtronic.modules.netcode.AccuratePositionContainer;
-import mega.blendtronic.modules.netcode.AccurateRotationContainer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import mega.blendtronic.modules.netcode.AccuratePositionContainer;
+import mega.blendtronic.modules.netcode.AccurateRotationContainer;
+import net.minecraft.network.play.server.S14PacketEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-import net.minecraft.network.play.server.S14PacketEntity;
-
 @Accessors(fluent = true, chain = false)
 @Mixin(S14PacketEntity.class)
-public class S14PacketEntityMixin implements AccuratePositionContainer, AccurateRotationContainer {
+public abstract class S14PacketEntityMixin implements AccuratePositionContainer, AccurateRotationContainer {
     @Getter
     @Setter
     @Unique

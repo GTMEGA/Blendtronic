@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(World.class)
-public class WorldUnsafeGetBlockMixin {
+public abstract class WorldUnsafeGetBlockMixin {
 
     /**
      * @author FalsePattern, SirFell

@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import java.util.Collection;
 import java.util.HashSet;
 
-@Mixin(value = World.class)
-public class WorldUpdateEntitiesRemoveAllMixin {
+@Mixin(World.class)
+public abstract class WorldUpdateEntitiesRemoveAllMixin {
     /**
      * @author Botn365
      * <p>

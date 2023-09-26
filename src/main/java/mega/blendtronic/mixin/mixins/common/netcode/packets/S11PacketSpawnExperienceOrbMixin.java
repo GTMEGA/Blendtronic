@@ -23,24 +23,23 @@
 
 package mega.blendtronic.mixin.mixins.common.netcode.packets;
 
-import mega.blendtronic.modules.netcode.AccurateMotionContainer;
-import mega.blendtronic.modules.netcode.AccuratePositionContainer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import mega.blendtronic.modules.netcode.AccurateMotionContainer;
+import mega.blendtronic.modules.netcode.AccuratePositionContainer;
+import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.S11PacketSpawnExperienceOrb;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.server.S11PacketSpawnExperienceOrb;
-
 @Accessors(fluent = true, chain = false)
 @Mixin(S11PacketSpawnExperienceOrb.class)
-public class S11PacketSpawnExperienceOrbMixin implements AccuratePositionContainer, AccurateMotionContainer {
+public abstract class S11PacketSpawnExperienceOrbMixin implements AccuratePositionContainer, AccurateMotionContainer {
     @Getter
     @Setter
     @Unique

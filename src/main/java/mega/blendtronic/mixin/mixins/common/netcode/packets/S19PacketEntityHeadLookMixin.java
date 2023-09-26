@@ -23,22 +23,21 @@
 
 package mega.blendtronic.mixin.mixins.common.netcode.packets;
 
-import mega.blendtronic.modules.netcode.AccurateRotationYawHeadContainer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import mega.blendtronic.modules.netcode.AccurateRotationYawHeadContainer;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.S19PacketEntityHeadLook;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.server.S19PacketEntityHeadLook;
-
 @Accessors(fluent = true, chain = false)
 @Mixin(S19PacketEntityHeadLook.class)
-public class S19PacketEntityHeadLookMixin implements AccurateRotationYawHeadContainer {
+public abstract class S19PacketEntityHeadLookMixin implements AccurateRotationYawHeadContainer {
     @Getter
     @Setter
     @Unique

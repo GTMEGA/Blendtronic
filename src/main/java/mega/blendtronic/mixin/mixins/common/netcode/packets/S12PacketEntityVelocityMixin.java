@@ -23,22 +23,21 @@
 
 package mega.blendtronic.mixin.mixins.common.netcode.packets;
 
-import mega.blendtronic.modules.netcode.AccurateMotionContainer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import mega.blendtronic.modules.netcode.AccurateMotionContainer;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.S12PacketEntityVelocity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.server.S12PacketEntityVelocity;
-
 @Accessors(fluent = true, chain = false)
 @Mixin(S12PacketEntityVelocity.class)
-public class S12PacketEntityVelocityMixin implements AccurateMotionContainer {
+public abstract class S12PacketEntityVelocityMixin implements AccurateMotionContainer {
     @Getter
     @Setter
     @Unique

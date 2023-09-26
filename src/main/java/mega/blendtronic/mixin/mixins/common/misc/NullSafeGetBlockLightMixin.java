@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(World.class)
-public class NullSafeGetBlockLightMixin {
+public abstract class NullSafeGetBlockLightMixin {
 
     /**
      * @author FalsePattern
