@@ -37,6 +37,10 @@ public class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean entityNetcodeImprovements;
 
+    @Config.Comment("[BOTH] Redirects boat collision damage to the player instead of popping the boat.")
+    @Config.DefaultBoolean(true)
+    public static boolean boatDamageRedirect;
+
     static {
         ConfigurationManager.selfInit();
     }
