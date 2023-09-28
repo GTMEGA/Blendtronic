@@ -6,13 +6,14 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.function.Predicate;
 
+import static com.falsepattern.lib.mixin.ITargetedMod.PredicateHelpers.matches;
 import static com.falsepattern.lib.mixin.ITargetedMod.PredicateHelpers.startsWith;
 
 @RequiredArgsConstructor
 public enum TargetedMod implements ITargetedMod {
     FASTCRAFT("FastCraft", false, startsWith("fastcraft")),
     EXTRA_UTILITIES("Extra Utilities", false, startsWith("extrautilities")),
-    BUILDCRAFT("BuildCraft", false, startsWith("buildcraft")),
+    BUILDCRAFT("BuildCraft", false, matches("buildcraft-[\\d\\.]+")),
     ;
 
     @Getter
