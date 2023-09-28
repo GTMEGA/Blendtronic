@@ -20,4 +20,7 @@ dependencies {
 
     // Extra Utilities 1.2.12
     compileOnly(deobfCurse("extra-utilities-225561:2264383"))
+
+    // BuildCraft 7.1.25
+    compileOnly(deobfCurse("buildcraft-61811:4055732"))
 }

@@ -12,8 +12,7 @@ import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.*;
 import static com.falsepattern.lib.mixin.IMixin.Side.CLIENT;
 import static com.falsepattern.lib.mixin.IMixin.Side.COMMON;
 import static mega.blendtronic.config.MinecraftConfig.*;
-import static mega.blendtronic.mixin.plugin.TargetedMod.EXTRA_UTILITIES;
-import static mega.blendtronic.mixin.plugin.TargetedMod.FASTCRAFT;
+import static mega.blendtronic.mixin.plugin.TargetedMod.*;
 
 @RequiredArgsConstructor
 public enum Mixin implements IMixin {
@@ -55,6 +54,7 @@ public enum Mixin implements IMixin {
 
     // region Extra Utilities
     common_extrautils_BlockBreakingRegistryMixin(COMMON, require(EXTRA_UTILITIES), "extrautils.BlockBreakingRegistryMixin"),
+    common_buildcraft_TileHopperMixin(COMMON, require(BUILDCRAFT), "buildcraft.TileHopperMixin"),
     // endregion
     ;
 
