@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(EntityBoat.class)
 public abstract class BoatDamageRedirectMixin extends Entity {
@@ -24,16 +23,16 @@ public abstract class BoatDamageRedirectMixin extends Entity {
             at = @At(value = "INVOKE",
                      target = "Lnet/minecraft/entity/item/EntityBoat;moveEntity(DDD)V",
                      shift = At.Shift.AFTER),
-            locals = LocalCapture.CAPTURE_FAILHARD,
             require = 1)
-    private void handleCollision(CallbackInfo ci, byte b0, double d0, double d10) {
+    private void handleCollision(CallbackInfo ci) {
         if (worldObj.isRemote)
             return;
         if (isDead)
             return;
         if (!isCollidedHorizontally)
             return;
-        if (d10 <= 0.2D)
+        val velocity = Math.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        if (velocity <= 0.2D)
             return;
         if (!(riddenByEntity instanceof EntityLivingBase))
             return;
