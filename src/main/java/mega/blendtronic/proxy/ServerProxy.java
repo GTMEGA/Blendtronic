@@ -1,4 +1,7 @@
 package mega.blendtronic.proxy;
 
-public class ServerProxy extends CommonProxy {
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public final class ServerProxy extends CommonProxy {
 }
