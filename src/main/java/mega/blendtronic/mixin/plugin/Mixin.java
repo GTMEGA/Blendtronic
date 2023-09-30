@@ -17,11 +17,11 @@ import static mega.blendtronic.mixin.plugin.TargetedMod.*;
 @RequiredArgsConstructor
 public enum Mixin implements IMixin {
     // region Misc
-    common_misc_BoatDamageRedirectMixin(COMMON, condition(() -> boatDamageRedirect), "misc.BoatDamageRedirectMixin"),
     common_misc_EntityPickupDropMixin(COMMON, condition(() -> entityLivingDropLootOnDespawnMixin), "misc.EntityPickupDropMixin"),
     common_misc_NullSafeGetBlockLightMixin(COMMON, condition(() -> worldGetBlockLightValueNpeMixin), "misc.NullSafeGetBlockLightMixin"),
     common_misc_WorldUnsafeGetBlockMixin(COMMON, condition(() -> worldUnsafeGetBlockMixin), "misc.WorldUnsafeGetBlockMixin"),
     common_misc_WorldUpdateEntitiesRemoveAllMixin(COMMON, avoid(FASTCRAFT).and(condition(() -> worldUpdateEntitiesRemoveAllMixin)), "misc.WorldUpdateEntitiesRemoveAllMixin"),
+    common_misc_BoatDamageRedirectMixin(COMMON, condition(() -> boatDamageRedirect), "misc.BoatDamageRedirectMixin"),
 
     client_misc_GameOverFullscreenFix(CLIENT, condition(() -> guiGameOverInitGuiMixin), "misc.GameOverFullscreenFix"),
     client_misc_OpenALNativeCrashFix(CLIENT, condition(() -> openALNativeCrashFix), "misc.OpenALNativeCrashFix"),

@@ -11,10 +11,6 @@ public class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean entityLivingDropLootOnDespawnMixin;
 
-    @Config.Comment("[CLIENT] Resets GameOver ui after switching to fullscreen to fix buttons disabling.")
-    @Config.DefaultBoolean(true)
-    public static boolean guiGameOverInitGuiMixin;
-
     @Config.Comment("[BOTH] Fixes NullPointerExceptions caused by getBlockLightValue returning NULL.")
     @Config.DefaultBoolean(true)
     public static boolean worldGetBlockLightValueNpeMixin;
@@ -24,9 +20,18 @@ public class MinecraftConfig {
     public static boolean worldUnsafeGetBlockMixin;
 
     @Config.Comment("[BOTH] Reduces lag spike when toRemoveTileEntities is large\n" +
-                    "Note: Not used if FastCraft is present, it has its own patch for this.")
+                    "Note: Automatically disabled if FastCraft is present, it has its own patch for this.")
     @Config.DefaultBoolean(true)
     public static boolean worldUpdateEntitiesRemoveAllMixin;
+
+    @Config.Comment("[SERVER] Redirects boat collision damage to the player instead of popping the boat.\n" +
+                    "LORE: Added this cause I wanted drunk driving in Minecraft.")
+    @Config.DefaultBoolean(true)
+    public static boolean boatDamageRedirect;
+
+    @Config.Comment("[CLIENT] Resets GameOver ui after switching to fullscreen to fix buttons disabling.")
+    @Config.DefaultBoolean(true)
+    public static boolean guiGameOverInitGuiMixin;
 
     @Config.Comment("[CLIENT] Fixes an occasional game crash caused by OpenAL linking errors")
     @Config.DefaultBoolean(true)
@@ -36,11 +41,6 @@ public class MinecraftConfig {
                     "NOTE: This needs to be enabled both serverside and clientside, otherwise it leads to a crash when trying to join multiplayer!")
     @Config.DefaultBoolean(true)
     public static boolean entityNetcodeImprovements;
-
-    @Config.Comment("[SERVER] Redirects boat collision damage to the player instead of popping the boat.\n" +
-                    "LORE: Added this cause I wanted drunk driving in Minecraft.")
-    @Config.DefaultBoolean(true)
-    public static boolean boatDamageRedirect;
 
     @Config.Comment("[SERVER] Stops ExtraUtilities from checking the render type of blocks to determine if they are a fence, by checking render type.\n" +
                     "This *usually* has no side effects as the code is often present both server and client side, but mods which will run both\n" +
