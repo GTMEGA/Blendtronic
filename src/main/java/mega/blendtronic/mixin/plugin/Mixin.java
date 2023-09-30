@@ -12,6 +12,8 @@ import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.*;
 import static com.falsepattern.lib.mixin.IMixin.Side.CLIENT;
 import static com.falsepattern.lib.mixin.IMixin.Side.COMMON;
 import static mega.blendtronic.config.MinecraftConfig.*;
+import static mega.blendtronic.config.ModConfig.buildCraftChuteImprovements;
+import static mega.blendtronic.config.ModConfig.extraUtilitiesBlockBreakingRegistryFix;
 import static mega.blendtronic.mixin.plugin.TargetedMod.*;
 
 @RequiredArgsConstructor
