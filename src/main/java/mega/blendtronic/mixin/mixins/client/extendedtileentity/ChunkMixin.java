@@ -9,7 +9,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(Chunk.class)
+import static mega.blendtronic.mixin.plugin.MixinPlugin.POST_CHUNK_API_MIXIN_PRIORITY;
+
+@Mixin(value = Chunk.class, priority = POST_CHUNK_API_MIXIN_PRIORITY)
 public abstract class ChunkMixin {
     @Redirect(method = "fillChunk",
               at = @At(value = "INVOKE",
