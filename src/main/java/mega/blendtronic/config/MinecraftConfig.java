@@ -4,9 +4,8 @@ import com.falsepattern.lib.config.Config;
 import com.falsepattern.lib.config.ConfigurationManager;
 import mega.blendtronic.Tags;
 
-@Config(modid = Tags.MODID,
-        category = "minecraft")
-public class MinecraftConfig {
+@Config(modid = Tags.MODID, category = "minecraft")
+public final class MinecraftConfig {
     @Config.Comment("[BOTH] Allows mobs that picked up player loot to despawn and drop that loot.")
     @Config.DefaultBoolean(true)
     public static boolean entityLivingDropLootOnDespawnMixin;
@@ -42,17 +41,10 @@ public class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean entityNetcodeImprovements;
 
-    @Config.Comment("[SERVER] Stops ExtraUtilities from checking the render type of blocks to determine if they are a fence, by checking render type.\n" +
-                    "This *usually* has no side effects as the code is often present both server and client side, but mods which will run both\n" +
-                    "should *NEVER* touch render code in any way shape or form.\n" +
-                    "LORE: Was crashing with RPLE of all things, how did we even get this far without it being noticed???")
+    @Config.Comment("[BOTH] Implements the ExtendedTileEntity interface on top of TileEntity.\n" +
+                    "This does nothing on it's own, but other fixes may depend on it.")
     @Config.DefaultBoolean(true)
-    public static boolean extraUtilitiesBlockBreakingRegistryFix;
-
-    @Config.Comment("[SERVER] Improves the BuildCraft Chute (Original Hopper) to pull items from the top at the same speed it can push items from the bottom.\n" +
-                    "LORE: Added this as in MEGA they are expensive to craft and should be at least worth the cost.")
-    @Config.DefaultBoolean(true)
-    public static boolean buildCraftChuteImprovements;
+    public static boolean extendedTileEntity;
 
     static {
         ConfigurationManager.selfInit();

@@ -48,6 +48,13 @@ public enum Mixin implements IMixin {
     common_netcode_NetHandlerPlayClientMixin(CLIENT, condition(() -> entityNetcodeImprovements), "netcode.NetHandlerPlayClientMixin"),
     // endregion
 
+    // region Extended Tile Entity
+    common_extendedtileentity_TileEntityMixin(COMMON, condition(() -> extendedTileEntity), "extendedtileentity.TileEntityMixin"),
+    common_extendedtileentity_ChunkMixin(COMMON, condition(() -> extendedTileEntity), "extendedtileentity.ChunkMixin"),
+
+    client_extendedtileentity_ChunkMixin(CLIENT, condition(() -> extendedTileEntity), "extendedtileentity.ChunkMixin"),
+    // endregion
+
     // region FastCraft
     common_fastcraft_FCCrashReportCategoryMixin(COMMON, require(FASTCRAFT), "fastcraft.CrashReportCategoryMixin"),
     common_fastcraft_FCCrashReportMixin(COMMON, require(FASTCRAFT), "fastcraft.CrashReportCategory"),
