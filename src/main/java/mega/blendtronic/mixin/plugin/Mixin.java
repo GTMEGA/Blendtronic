@@ -54,6 +54,9 @@ public enum Mixin implements IMixin {
 
     // region Extra Utilities
     common_extrautils_BlockBreakingRegistryMixin(COMMON, require(EXTRA_UTILITIES), "extrautils.BlockBreakingRegistryMixin"),
+    // endregion
+
+    // region BuildCraft
     common_buildcraft_TileHopperMixin(COMMON, require(BUILDCRAFT), "buildcraft.TileHopperMixin"),
     // endregion
     ;
