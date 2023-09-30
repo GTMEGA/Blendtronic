@@ -28,7 +28,6 @@ public enum Mixin implements IMixin {
     // endregion
 
     // region Netcode
-
     common_netcode_S0CPacketSpawnPlayerMixin(COMMON, condition(() -> entityNetcodeImprovements), "netcode.packets.S0CPacketSpawnPlayerMixin"),
     common_netcode_S0EPacketSpawnObjectMixin(COMMON, condition(() -> entityNetcodeImprovements), "netcode.packets.S0EPacketSpawnObjectMixin"),
     common_netcode_S0FPacketSpawnMobMixin(COMMON, condition(() -> entityNetcodeImprovements), "netcode.packets.S0FPacketSpawnMobMixin"),
@@ -53,11 +52,11 @@ public enum Mixin implements IMixin {
     // endregion
 
     // region Extra Utilities
-    common_extrautils_BlockBreakingRegistryMixin(COMMON, require(EXTRA_UTILITIES), "extrautils.BlockBreakingRegistryMixin"),
+    common_extrautils_BlockBreakingRegistryMixin(COMMON, require(EXTRA_UTILITIES).and(condition(() -> extraUtilitiesBlockBreakingRegistryFix)), "extrautils.BlockBreakingRegistryMixin"),
     // endregion
 
     // region BuildCraft
-    common_buildcraft_TileHopperMixin(COMMON, require(BUILDCRAFT), "buildcraft.TileHopperMixin"),
+    common_buildcraft_TileHopperMixin(COMMON, require(BUILDCRAFT).and(condition(() -> buildCraftChuteImprovements)), "buildcraft.TileHopperMixin"),
     // endregion
     ;
 

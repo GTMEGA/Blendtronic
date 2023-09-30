@@ -37,9 +37,22 @@ public class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean entityNetcodeImprovements;
 
-    @Config.Comment("[BOTH] Redirects boat collision damage to the player instead of popping the boat.")
+    @Config.Comment("[SERVER] Redirects boat collision damage to the player instead of popping the boat.\n" +
+                    "LORE: Added this cause I wanted drunk driving in Minecraft.")
     @Config.DefaultBoolean(true)
     public static boolean boatDamageRedirect;
+
+    @Config.Comment("[SERVER] Stops ExtraUtilities from checking the render type of blocks to determine if they are a fence, by checking render type.\n" +
+                    "This *usually* has no side effects as the code is often present both server and client side, but mods which will run both\n" +
+                    "should *NEVER* touch render code in any way shape or form.\n" +
+                    "LORE: Was crashing with RPLE of all things, how did we even get this far without it being noticed???")
+    @Config.DefaultBoolean(true)
+    public static boolean extraUtilitiesBlockBreakingRegistryFix;
+
+    @Config.Comment("[SERVER] Improves the BuildCraft Chute (Original Hopper) to pull items from the top at the same speed it can push items from the bottom.\n" +
+                    "LORE: Added this as in MEGA they are expensive to craft and should be at least worth the cost.")
+    @Config.DefaultBoolean(true)
+    public static boolean buildCraftChuteImprovements;
 
     static {
         ConfigurationManager.selfInit();
