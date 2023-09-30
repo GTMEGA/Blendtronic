@@ -55,6 +55,12 @@ public enum Mixin implements IMixin {
     client_extendedtileentity_ChunkMixin(CLIENT, condition(() -> extendedTileEntity), "extendedtileentity.ChunkMixin"),
     // endregion
 
+    // region Cauldron Tank
+    common_cauldrontank_BlockCauldronMixin(COMMON, condition(() -> cauldronTank && extendedTileEntity), "cauldrontank.BlockCauldronMixin"),
+
+    client_cauldrontank_RenderBlocksMixin(CLIENT, condition(() -> cauldronTank && extendedTileEntity), "cauldrontank.RenderBlocksMixin"),
+    // endregion
+
     // region FastCraft
     common_fastcraft_FCCrashReportCategoryMixin(COMMON, require(FASTCRAFT), "fastcraft.CrashReportCategoryMixin"),
     common_fastcraft_FCCrashReportMixin(COMMON, require(FASTCRAFT), "fastcraft.CrashReportCategory"),

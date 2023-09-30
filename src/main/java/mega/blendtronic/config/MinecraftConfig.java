@@ -46,6 +46,18 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean extendedTileEntity;
 
+    @Config.Comment("[BOTH] Adds a Tile Entity tank to the Minecraft cauldron, this tile does not tick but extends it's functionality.\n" +
+                    "It implements the Forge IFluidHandler interface, which allows mods to interact with it like a regular tank.\n" +
+                    "The internal tank stores 750mb of water, a bucket can still refill it as usual.\n" +
+                    "Block metadata will be equivalent to (storedFluidAmount / 250) rounded to an int. \n" +
+                    "So: [150mb -> meta 0], [300mb -> meta 1] and [750mb -> meta 3] etc. \n" +
+                    "Thus vanilla behaviour and mod interactions are practically the same, a full bucket will still fill it to the top and bottles work the same etc.\n" +
+                    "And so does washing GregTech dust, as all these interactions will do is read & update the meta value.\n" +
+                    "REQUIREMENTS: extendedTileEntity=true\n" +
+                    "LORE: Added this when I was still a slow-ass pre steam, but couldn't be fucked to fill a cauldron by hand.")
+    @Config.DefaultBoolean(true)
+    public static boolean cauldronTank;
+
     static {
         ConfigurationManager.selfInit();
     }
