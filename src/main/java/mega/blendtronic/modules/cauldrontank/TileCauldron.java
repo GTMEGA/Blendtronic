@@ -72,23 +72,11 @@ public final class TileCauldron extends TileEntity implements IFluidHandler, Ext
 
     @Override
     public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain) {
-        if (isDirectionValid(from) && isFluidStackValid(resource)) {
-            val drainedFluidStack = tank.drain(resource.amount, doDrain);
-            if (doDrain)
-                updateFluidAmount();
-            return drainedFluidStack;
-        }
         return null;
     }
 
     @Override
     public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain) {
-        if (isDirectionValid(from)) {
-            val drainedFluidStack = tank.drain(maxDrain, doDrain);
-            if (doDrain)
-                updateFluidAmount();
-            return drainedFluidStack;
-        }
         return null;
     }
 
@@ -99,7 +87,7 @@ public final class TileCauldron extends TileEntity implements IFluidHandler, Ext
 
     @Override
     public boolean canDrain(ForgeDirection from, Fluid fluid) {
-        return isDirectionValid(from) && isFluidValid(fluid);
+        return false;
     }
 
     @Override

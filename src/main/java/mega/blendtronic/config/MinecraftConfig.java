@@ -49,6 +49,7 @@ public final class MinecraftConfig {
     @Config.Comment("[BOTH] Adds a Tile Entity tank to the Minecraft cauldron, this tile does not tick but extends it's functionality.\n" +
                     "It implements the Forge IFluidHandler interface, which allows mods to interact with it like a regular tank.\n" +
                     "The internal tank stores 750mb of water, a bucket can still refill it as usual.\n" +
+                    "However, draining is disabled. This is to prevent the cauldron to be used as a cheap water buffer.\n" +
                     "Block metadata will be equivalent to (storedFluidAmount / 250) rounded to an int. \n" +
                     "So: [150mb -> meta 0], [300mb -> meta 1] and [750mb -> meta 3] etc. \n" +
                     "Thus vanilla behaviour and mod interactions are practically the same, a full bucket will still fill it to the top and bottles work the same etc.\n" +
