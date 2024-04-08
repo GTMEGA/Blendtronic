@@ -15,15 +15,23 @@ public class OpenALNativeCrashFix extends SoundSystem {
      */
     @Overwrite(remap = false)
     public boolean playing(String p_playing_1_) {
-        try {
-            synchronized (SoundSystemConfig.THREAD_SYNC) {
-                if (this.soundLibrary == null)
-                    return false;
-                Source source = this.soundLibrary.getSources().get(p_playing_1_);
-                return source != null && (source.playing() || source.paused() || source.preLoad);
+        synchronized (SoundSystemConfig.THREAD_SYNC) {
+            if (this.soundLibrary == null)
+                return false;
+            Source source = this.soundLibrary.getSources().get(p_playing_1_);
+            if (source == null)
+                return false;
+            try {
+                if (source.playing())
+                    return true;
+            } catch (UnsatisfiedLinkError e) {
+                Share.LOG.error("Suppressed OpenAL native crash", e);
             }
-        } catch (UnsatisfiedLinkError e) {
-            Share.LOG.error("Suppressed OpenAL native crash", e);
+            try {
+                return source.paused() || source.preLoad;
+            } catch (UnsatisfiedLinkError e) {
+                Share.LOG.error("Suppressed OpenAL native crash", e);
+            }
             return false;
         }
     }
