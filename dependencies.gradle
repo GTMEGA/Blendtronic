@@ -23,4 +23,7 @@ dependencies {
 
     // BuildCraft 7.1.25
     compileOnly(deobfCurse("buildcraft-61811:4055732"))
+
+    // Thaumcraft 4.2.3.5
+    compileOnly(deobfCurse("thaumcraft-223628:2227552"))
 }

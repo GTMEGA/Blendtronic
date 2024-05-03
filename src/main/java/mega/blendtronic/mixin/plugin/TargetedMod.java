@@ -14,6 +14,7 @@ public enum TargetedMod implements ITargetedMod {
     FASTCRAFT("FastCraft", false, startsWith("fastcraft")),
     EXTRA_UTILITIES("Extra Utilities", false, startsWith("extrautilities")),
     BUILDCRAFT("BuildCraft", false, matches("buildcraft-[\\d\\.]+")),
+    THAUMCRAFT("Thaumcraft",false,startsWith("Thaumcraft-1.7.10"))
     ;
 
     @Getter
