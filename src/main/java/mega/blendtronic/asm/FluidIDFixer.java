@@ -43,33 +43,26 @@ public class FluidIDFixer implements TurboClassTransformer {
 
     @Override
     public boolean shouldTransformClass(@NotNull String className, @NotNull ClassNodeHandle classNode) {
-        val cn = classNode.getNode();
-        if (cn == null)
-            return false;
-        for (val method: cn.methods) {
-            val insnList = method.instructions.iterator();
-            while (insnList.hasNext()) {
-                if (isFluidIDFieldAccess(insnList.next()) != null) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return !className.startsWith("net/minecraftforge/") &&
+               !className.startsWith("net/minecraft/");
     }
 
     @Override
-    public void transformClass(@NotNull String className, @NotNull ClassNodeHandle classNode) {
+    public boolean transformClass(@NotNull String className, @NotNull ClassNodeHandle classNode) {
         val cn = classNode.getNode();
         if (cn == null)
-            return;
+            return false;
+        boolean modified = false;
         for (val method: cn.methods) {
             val insnList = method.instructions.iterator();
             while (insnList.hasNext()) {
                 val fluidInsn = isFluidIDFieldAccess(insnList.next());
                 if (fluidInsn != null) {
                     insnList.set(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, FLUID_TYPE, GETID_NAME, GETID_DESC, false));
+                    modified = true;
                 }
             }
         }
+        return modified;
     }
 }

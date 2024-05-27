@@ -18,7 +18,8 @@ dependencies {
 
     compileOnly("org.jetbrains:annotations:24.0.1")
 
-    implementation("com.falsepattern:falsepatternlib-mc1.7.10:1.2.0:dev")
+    compileOnly("com.falsepattern:falsepatternlib-mc1.7.10:1.2.1:api")
+    runtimeOnly("com.falsepattern:falsepatternlib-mc1.7.10:1.2.1:dev")
 
     // Extra Utilities 1.2.12
     compileOnly(deobfCurse("extra-utilities-225561:2264383"))
