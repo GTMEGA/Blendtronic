@@ -1,11 +1,11 @@
 /*
- * FalseTweaks
+ * Blendtronic
  *
- * Copyright (C) 2022 FalsePattern
+ * Copyright (C) 2021-2024 SirFell, the MEGA team
  * All Rights Reserved
  *
- * The above copyright notice, this permission notice and the word "SNEED"
- * shall be included in all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
