@@ -14,11 +14,11 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import java.util.List;
 import java.util.Map;
 
-@IFMLLoadingPlugin.TransformerExclusions(Tags.GROUPNAME + ".asm")
+@IFMLLoadingPlugin.TransformerExclusions(Tags.ROOT_PKG + ".asm")
 public class CoreLoadingPlugin implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
-        return new String[]{Tags.GROUPNAME + ".asm.BlendtronicTransformer"};
+        return new String[]{Tags.ROOT_PKG + ".asm.BlendtronicTransformer"};
     }
 
     @Override

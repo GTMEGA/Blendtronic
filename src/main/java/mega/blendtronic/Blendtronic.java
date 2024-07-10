@@ -9,14 +9,14 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Tags.MODID,
-     version = Tags.VERSION,
-     name = Tags.MODNAME,
+@Mod(modid = Tags.MOD_ID,
+     version = Tags.MOD_VERSION,
+     name = Tags.MOD_NAME,
      acceptedMinecraftVersions = "[1.7.10]",
-     dependencies = "required-after:falsepatternlib@[0.12,);")
+     dependencies = "required-after:falsepatternlib@[1.2,);")
 public class Blendtronic {
-    @SidedProxy(clientSide = Tags.GROUPNAME + ".proxy.ClientProxy",
-                serverSide = Tags.GROUPNAME + ".proxy.ServerProxy")
+    @SidedProxy(clientSide = Tags.ROOT_PKG + ".proxy.ClientProxy",
+                serverSide = Tags.ROOT_PKG + ".proxy.ServerProxy")
     private static CommonProxy proxy;
 
     @Mod.EventHandler

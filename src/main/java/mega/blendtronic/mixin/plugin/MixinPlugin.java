@@ -12,7 +12,7 @@ public class MixinPlugin implements IMixinPlugin {
     public static final int POST_CHUNK_API_MIXIN_PRIORITY = 1010;
 
     @Getter
-    private final Logger logger = IMixinPlugin.createLogger(Tags.MODNAME);
+    private final Logger logger = IMixinPlugin.createLogger(Tags.MOD_NAME);
 
     @Override
     public ITargetedMod[] getTargetedModEnumValues() {

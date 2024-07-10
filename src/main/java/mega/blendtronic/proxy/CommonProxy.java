@@ -17,7 +17,7 @@ public abstract class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
         if (cauldronTank && extendedTileEntity)
-            GameRegistry.registerTileEntity(TileCauldron.class, Tags.MODID + "_cauldron");
+            GameRegistry.registerTileEntity(TileCauldron.class, Tags.MOD_ID + "_cauldron");
     }
 
     public void init(FMLInitializationEvent e) {}

@@ -4,7 +4,7 @@ import com.falsepattern.lib.config.Config;
 import com.falsepattern.lib.config.ConfigurationManager;
 import mega.blendtronic.Tags;
 
-@Config(modid = Tags.MODID, category = "mods")
+@Config(modid = Tags.MOD_ID, category = "mods")
 public final class ModConfig {
     @Config.Comment("[CLIENT]{OptiFine} Fix modded PBRs and connected textures when switching worlds")
     @Config.DefaultBoolean(true)

@@ -4,7 +4,7 @@ import com.falsepattern.lib.config.Config;
 import com.falsepattern.lib.config.ConfigurationManager;
 import mega.blendtronic.Tags;
 
-@Config(modid = Tags.MODID, category = "minecraft")
+@Config(modid = Tags.MOD_ID, category = "minecraft")
 public final class MinecraftConfig {
     @Config.Comment("[BOTH] Allows mobs that picked up player loot to despawn and drop that loot.")
     @Config.DefaultBoolean(true)
