@@ -40,11 +40,11 @@ dependencies {
     implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.2.5")
 
     // Extra Utilities 1.2.12
-    devOnlyNonPublishable(deobfCurse("extra-utilities-225561:2264383"))
+    compileOnly(deobfCurse("extra-utilities-225561:2264383"))
 
     // BuildCraft 7.1.25
-    devOnlyNonPublishable(deobfCurse("buildcraft-61811:4055732"))
+    compileOnly(deobfCurse("buildcraft-61811:4055732"))
 
     // Thaumcraft 4.2.3.5
-    devOnlyNonPublishable(deobfCurse("thaumcraft-223628:2227552"))
+    compileOnly(deobfCurse("thaumcraft-223628:2227552"))
 }
