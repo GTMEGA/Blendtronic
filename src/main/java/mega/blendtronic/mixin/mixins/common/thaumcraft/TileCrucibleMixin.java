@@ -52,6 +52,6 @@ public class TileCrucibleMixin extends TileThaumcraft {
         }
     }
 
-    @Shadow
+    @Shadow(remap = false)
     public FluidTank tank;
 }

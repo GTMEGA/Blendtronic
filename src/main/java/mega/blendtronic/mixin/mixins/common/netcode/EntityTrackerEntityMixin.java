@@ -118,7 +118,7 @@ public abstract class EntityTrackerEntityMixin implements AccurateEntityTrackerE
 
     @Shadow protected abstract boolean isPlayerWatchingThisChunk(EntityPlayerMP p_73121_1_);
 
-    @Shadow public Set trackingPlayers;
+    @Shadow public Set<EntityPlayerMP> trackingPlayers;
 
     @Shadow protected abstract Packet func_151260_c();
 
@@ -404,7 +404,7 @@ public abstract class EntityTrackerEntityMixin implements AccurateEntityTrackerE
                     {
                         ServersideAttributeMap
                                 serversideattributemap = (ServersideAttributeMap)((EntityLivingBase)this.myEntity).getAttributeMap();
-                        Collection collection = serversideattributemap.getWatchedAttributes();
+                        val collection = serversideattributemap.getWatchedAttributes();
 
                         if (!collection.isEmpty())
                         {
@@ -466,7 +466,7 @@ public abstract class EntityTrackerEntityMixin implements AccurateEntityTrackerE
                     if (this.myEntity instanceof EntityLivingBase)
                     {
                         EntityLivingBase entitylivingbase = (EntityLivingBase)this.myEntity;
-                        Iterator iterator = entitylivingbase.getActivePotionEffects().iterator();
+                        val iterator = entitylivingbase.getActivePotionEffects().iterator();
 
                         while (iterator.hasNext())
                         {
