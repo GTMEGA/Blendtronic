@@ -26,7 +26,6 @@ package mega.blendtronic.modules.cauldrontank;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import lombok.val;
-import lombok.var;
 import mega.blendtronic.api.ExtendedTileEntity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;

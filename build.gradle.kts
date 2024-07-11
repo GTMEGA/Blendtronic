@@ -5,6 +5,9 @@ plugins {
 group = "mega"
 
 minecraft_fp {
+    java {
+        compatibility = modern
+    }
     mod {
         modid   = "blendtronic"
         name    = "Blendtronic"
