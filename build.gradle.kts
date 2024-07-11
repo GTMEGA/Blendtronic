@@ -1,5 +1,5 @@
 plugins {
-    id("fpgradle-minecraft") version("0.4.0")
+    id("fpgradle-minecraft") version("0.4.2")
 }
 
 group = "mega"
@@ -29,7 +29,6 @@ minecraft_fp {
         maven {
             repoUrl  = "https://mvn.falsepattern.com/gtmega_releases"
             repoName = "mega"
-            group = "gtmega"
         }
     }
 }
@@ -41,6 +40,8 @@ repositories {
 
 dependencies {
     implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.2.5")
+
+    implementation("it.unimi.dsi:fastutil:8.5.13")
 
     // Extra Utilities 1.2.12
     compileOnly(deobfCurse("extra-utilities-225561:2264383"))
