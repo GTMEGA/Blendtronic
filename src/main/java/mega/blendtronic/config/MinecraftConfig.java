@@ -86,6 +86,10 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean cauldronTank;
 
+    @Config.Comment("[SERVER] Replaces the world generator integer cache with a more thread safe and optimized variant.")
+    @Config.DefaultBoolean(true)
+    public static boolean newIntCache;
+
     static {
         ConfigurationManager.selfInit();
     }

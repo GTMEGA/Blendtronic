@@ -97,7 +97,12 @@ public enum Mixin implements IMixin {
     // region BuildCraft
     common_buildcraft_TileHopperMixin(COMMON, require(BUILDCRAFT).and(condition(() -> buildCraftChuteImprovements)), "buildcraft.TileHopperMixin"),
 
-    common_thaumcraft_TileCruicble(COMMON,require(THAUMCRAFT),"thaumcraft.TileCrucibleMixin")
+    common_thaumcraft_TileCruicble(COMMON,require(THAUMCRAFT),"thaumcraft.TileCrucibleMixin"),
+    // endregion
+
+    // region IntCache
+    common_intcache_IntCacheMixin(COMMON, condition(() -> newIntCache), "intcache.IntCacheMixin"),
+    common_intcache_WorldChunkManagerMixin(COMMON, condition(() -> newIntCache), "intcache.WorldChunkManagerMixin"),
     // endregion
     ;
 
