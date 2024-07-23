@@ -47,11 +47,11 @@ public enum Mixin implements IMixin {
     common_misc_WorldUnsafeGetBlockMixin(COMMON, condition(() -> worldUnsafeGetBlockMixin), "misc.WorldUnsafeGetBlockMixin"),
     common_misc_WorldUpdateEntitiesRemoveAllMixin(COMMON, avoid(FASTCRAFT).and(condition(() -> worldUpdateEntitiesRemoveAllMixin)), "misc.WorldUpdateEntitiesRemoveAllMixin"),
     common_misc_BoatDamageRedirectMixin(COMMON, condition(() -> boatDamageRedirect), "misc.BoatDamageRedirectMixin"),
-    common_misc_AllowToolSwitchMiningMixin(COMMON, condition(() -> allowToolSwitchOnBlockBreak), "misc.AllowToolSwitchMiningMixin"),
 
     client_misc_GameOverFullscreenFix(CLIENT, condition(() -> guiGameOverInitGuiMixin), "misc.GameOverFullscreenFix"),
     client_misc_OpenALNativeCrashFix(CLIENT, condition(() -> openALNativeCrashFix), "misc.OpenALNativeCrashFix"),
     client_misc_SoundManagerCrashFix(CLIENT, condition(() -> soundManagerCrashFix), "misc.SoundManagerCrashFix"),
+    client_misc_AllowToolSwitchMiningMixin(CLIENT, condition(() -> allowToolSwitchOnBlockBreak), "misc.AllowToolSwitchMiningMixin"),
     // endregion
 
     // region Netcode

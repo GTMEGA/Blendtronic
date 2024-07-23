@@ -1,4 +1,4 @@
-package mega.blendtronic.mixin.mixins.common.misc;
+package mega.blendtronic.mixin.mixins.client.misc;
 
 import net.minecraft.client.multiplayer.PlayerControllerMP;
 import org.spongepowered.asm.mixin.Mixin;
