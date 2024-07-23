@@ -90,6 +90,10 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean newIntCache;
 
+    @Config.Comment("[BOTH] Allows switching tools when breaking blocks")
+    @Config.DefaultBoolean(true)
+    public static boolean allowToolSwitchOnBlockBreak;
+
     static {
         ConfigurationManager.selfInit();
     }
