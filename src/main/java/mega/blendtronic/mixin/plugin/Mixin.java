@@ -102,6 +102,8 @@ public enum Mixin implements IMixin {
     // endregion
 
     // region BiblioCraft
+    common_bibliocraft_FileUtilMixin(COMMON, require(BIBLIOCRAFT), "bibliocraft.FileUtilMixin"),
+
     common_bibliocraft_ServerPacketHandlerMixin(COMMON, require(BIBLIOCRAFT), "bibliocraft.ServerPacketHandlerMixin"),
     // endregion
 
