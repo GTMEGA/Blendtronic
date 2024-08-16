@@ -51,4 +51,7 @@ dependencies {
 
     // Thaumcraft 4.2.3.5
     compileOnly(deobfCurse("thaumcraft-223628:2227552"))
+
+    // BiblioCraft 1.11.7
+    compileOnly(deobfCurse("bibliocraft-228027:2423369"))
 }

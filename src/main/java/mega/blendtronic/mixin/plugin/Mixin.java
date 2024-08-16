@@ -101,6 +101,10 @@ public enum Mixin implements IMixin {
     common_thaumcraft_TileCruicble(COMMON,require(THAUMCRAFT),"thaumcraft.TileCrucibleMixin"),
     // endregion
 
+    // region BiblioCraft
+    common_bibliocraft_ServerPacketHandlerMixin(COMMON, require(BIBLIOCRAFT), "bibliocraft.ServerPacketHandlerMixin"),
+    // endregion
+
     // region IntCache
     common_intcache_IntCacheMixin(COMMON, condition(() -> newIntCache), "intcache.IntCacheMixin"),
     common_intcache_WorldChunkManagerMixin(COMMON, condition(() -> newIntCache), "intcache.WorldChunkManagerMixin"),
