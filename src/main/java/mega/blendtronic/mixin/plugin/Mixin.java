@@ -37,6 +37,7 @@ import static com.falsepattern.lib.mixin.IMixin.Side.COMMON;
 import static mega.blendtronic.config.MinecraftConfig.*;
 import static mega.blendtronic.config.ModConfig.buildCraftChuteImprovements;
 import static mega.blendtronic.config.ModConfig.extraUtilitiesBlockBreakingRegistryFix;
+import static mega.blendtronic.config.ModConfig.optiFineSunAngleFix;
 import static mega.blendtronic.mixin.plugin.TargetedMod.*;
 
 @RequiredArgsConstructor
@@ -110,6 +111,10 @@ public enum Mixin implements IMixin {
     // region IntCache
     common_intcache_IntCacheMixin(COMMON, condition(() -> newIntCache), "intcache.IntCacheMixin"),
     common_intcache_WorldChunkManagerMixin(COMMON, condition(() -> newIntCache), "intcache.WorldChunkManagerMixin"),
+    // endregion
+
+    // region Shaders
+    client_shaders_OptiFineSunAngle_ShadersRenderMixin(CLIENT, REQUIRE_OPTIFINE_WITH_SHADERS.and(condition(() -> optiFineSunAngleFix)), "shaders.OptiFineSunAngle_ShadersRenderMixin"),
     // endregion
     ;
 

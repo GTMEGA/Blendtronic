@@ -33,6 +33,10 @@ public final class ModConfig {
     @Config.DefaultBoolean(true)
     public static boolean optiFineShaderMappingFix;
 
+    @Config.Comment("[CLIENT]{OptiFine} Fix sun angle not updating without shadow pass")
+    @Config.DefaultBoolean(true)
+    public static boolean optiFineSunAngleFix;
+
     @Config.Comment("[SERVER]{ExtraUtilities} Removes checking the render type of blocks to determine if they are a fence, by checking render type.\n" +
                     "This may make certain modded fences which do not extend the base Minecraft fence to not function as perimeter blocks for the Ender Quarry.\n" +
                     "This *usually* has no side effects as the code is often present both server and client side, but mods which will run both\n" +

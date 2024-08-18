@@ -36,10 +36,13 @@ minecraft_fp {
 repositories {
     cursemavenEX()
     exclusive(mavenpattern(), "com.falsepattern")
+    exclusive(maven("mega_uploads", "https://mvn.falsepattern.com/gtmega_uploads"), "optifine")
 }
 
 dependencies {
     implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.4.0")
+
+    compileOnly(deobf("optifine:optifine:1.7.10_hd_u_e7"))
 
     implementation("it.unimi.dsi:fastutil:8.5.13")
 

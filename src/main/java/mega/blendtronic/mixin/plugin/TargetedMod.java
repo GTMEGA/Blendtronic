@@ -27,10 +27,16 @@ import com.falsepattern.lib.mixin.ITargetedMod;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.function.Predicate;
 
+import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.avoid;
+import static com.falsepattern.lib.mixin.IMixin.PredicateHelpers.require;
+import static com.falsepattern.lib.mixin.ITargetedMod.PredicateHelpers.contains;
 import static com.falsepattern.lib.mixin.ITargetedMod.PredicateHelpers.matches;
 import static com.falsepattern.lib.mixin.ITargetedMod.PredicateHelpers.startsWith;
+import static mega.blendtronic.mixin.plugin.Extras.OPTIFINE_DYNAMIC_LIGHTS_VERSIONS;
+import static mega.blendtronic.mixin.plugin.Extras.OPTIFINE_SHADERSMOD_VERSIONS;
 
 @RequiredArgsConstructor
 public enum TargetedMod implements ITargetedMod {
@@ -39,7 +45,16 @@ public enum TargetedMod implements ITargetedMod {
     BUILDCRAFT("BuildCraft", false, matches("buildcraft-[\\d\\.]+")),
     THAUMCRAFT("Thaumcraft",false,startsWith("thaumcraft-1.7.10")),
     BIBLIOCRAFT("BiblioCraft", false, startsWith("bibliocraft")),
+    OPTIFINE_WITHOUT_SHADERS("OptiFine without shaders", false, contains("optifine").and(OPTIFINE_SHADERSMOD_VERSIONS.or(OPTIFINE_DYNAMIC_LIGHTS_VERSIONS).negate())),
+    OPTIFINE_WITH_SHADERS("OptiFine with shaders", false, contains("optifine").and(OPTIFINE_SHADERSMOD_VERSIONS)),
+    OPTIFINE_WITH_DYNAMIC_LIGHTS("OptiFine with dynamic lights", false, contains("optifine").and(OPTIFINE_DYNAMIC_LIGHTS_VERSIONS)),
     ;
+    public static Predicate<List<ITargetedMod>> REQUIRE_OPTIFINE_WITHOUT_SHADERS = require(OPTIFINE_WITHOUT_SHADERS).or(require(OPTIFINE_WITH_DYNAMIC_LIGHTS));
+    public static Predicate<List<ITargetedMod>> REQUIRE_OPTIFINE_WITH_SHADERS = require(OPTIFINE_WITH_SHADERS);
+    public static Predicate<List<ITargetedMod>> AVOID_OPTIFINE_WITH_SHADERS = avoid(OPTIFINE_WITH_SHADERS);
+    public static Predicate<List<ITargetedMod>> REQUIRE_OPTIFINE_WITH_DYNAMIC_LIGHTS = require(OPTIFINE_WITH_SHADERS).or(require(OPTIFINE_WITH_DYNAMIC_LIGHTS));
+    public static Predicate<List<ITargetedMod>> REQUIRE_ANY_OPTIFINE = require(OPTIFINE_WITH_SHADERS).or(require(OPTIFINE_WITHOUT_SHADERS)).or(require(OPTIFINE_WITH_DYNAMIC_LIGHTS));
+    public static Predicate<List<ITargetedMod>> AVOID_ANY_OPTIFINE = avoid(OPTIFINE_WITH_SHADERS).and(avoid(OPTIFINE_WITHOUT_SHADERS)).and(avoid(OPTIFINE_WITH_DYNAMIC_LIGHTS));
 
     @Getter
     private final String modName;
