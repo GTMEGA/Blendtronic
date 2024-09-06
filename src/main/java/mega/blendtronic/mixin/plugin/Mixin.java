@@ -116,6 +116,11 @@ public enum Mixin implements IMixin {
     // region Shaders
     client_shaders_OptiFineSunAngle_ShadersRenderMixin(CLIENT, REQUIRE_OPTIFINE_WITH_SHADERS.and(condition(() -> optiFineSunAngleFix)), "shaders.OptiFineSunAngle_ShadersRenderMixin"),
     // endregion
+
+    // region Fancy Furnace
+    client_fancyfurnace_BlockFurnaceMixin(CLIENT, always(), "fancyfurnace.BlockFurnaceMixin"),
+    common_fancyfurnace_TileEntityFurnace(COMMON, always(), "fancyfurnace.TileEntityFurnaceMixin"),
+    // endregion
     ;
 
     @Getter

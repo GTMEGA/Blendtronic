@@ -18,6 +18,7 @@ minecraft_fp {
         pluginClass  = "mixin.plugin.MixinPlugin"
     }
     core {
+        accessTransformerFile = "blendtronic_at.cfg"
         coreModClass = "asm.CoreLoadingPlugin"
     }
 
