@@ -6,7 +6,7 @@ group = "mega"
 
 minecraft_fp {
     java {
-        compatibility = modern
+        compatibility = jabel
     }
     mod {
         modid   = "blendtronic"
@@ -38,10 +38,13 @@ repositories {
     cursemavenEX()
     exclusive(mavenpattern(), "com.falsepattern")
     exclusive(maven("mega_uploads", "https://mvn.falsepattern.com/gtmega_uploads"), "optifine")
+    exclusive(maven("horizon", "https://mvn.falsepattern.com/horizon"), "com.gtnewhorizons.retrofuturabootstrap")
 }
 
 dependencies {
     implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.4.0")
+
+    compileOnly("com.gtnewhorizons.retrofuturabootstrap:RetroFuturaBootstrap:1.0.7")
 
     compileOnly(deobf("optifine:optifine:1.7.10_hd_u_e7"))
 

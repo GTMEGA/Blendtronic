@@ -60,7 +60,7 @@ public class NewIntCache {
         final int level = (size <= SMALLEST) ? MIN_LEVEL : 32 - Integer.numberOfLeadingZeros(size - 1);
 
         while (!SEMAPHORE.tryAcquire()) {
-            Thread.onSpinWait();
+            Thread.yield();
         }
         try {
             final List<int[]> caches = cachedObjects.computeIfAbsent(level, LIST_CONSTRUCTOR);
@@ -68,7 +68,7 @@ public class NewIntCache {
             if (caches.isEmpty()) {
                 return new int[2 << (level - 1)];
             }
-            return caches.removeLast();
+            return caches.remove(caches.size() - 1);
         } finally {
             SEMAPHORE.release();
         }
@@ -77,7 +77,7 @@ public class NewIntCache {
     public static void releaseCache(int[] cache) {
         final int level = (cache.length <= SMALLEST) ? MIN_LEVEL : 32 - Integer.numberOfLeadingZeros(cache.length - 1);
         while (!SEMAPHORE.tryAcquire()) {
-            Thread.onSpinWait();
+            Thread.yield();
         }
         try {
             cachedObjects.computeIfAbsent(level, LIST_CONSTRUCTOR).add(cache);
