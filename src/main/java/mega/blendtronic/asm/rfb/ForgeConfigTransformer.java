@@ -59,7 +59,7 @@ public class ForgeConfigTransformer implements RfbClassTransformer {
     private static final String EARLY_HOOKS_INTERNAL = "mega/blendtronic/asm/hooks/early/EarlyHooks";
     private static final String CATEGORY_INTERNAL = "net/minecraftforge/common/config/ConfigCategory";
     private static final String PROPERTY_INTERNAL = "net/minecraftforge/common/config/Property";
-    private static final String OPEN_MAP_INTERNAL = "it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap";
+    private static final String OPEN_MAP_INTERNAL = "it/unimi/dsi/fastutil/objects/Object2ObjectAVLTreeMap";
 
     @Pattern("[a-z0-9-]+")
     @Override
