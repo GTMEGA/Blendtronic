@@ -94,6 +94,21 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean allowToolSwitchOnBlockBreak;
 
+    @Config.Comment("[SERVER] Whether or not enable faster leaf decay. Decay speed is controlled by Decay Speed and Fuzz")
+    @Config.DefaultBoolean(true)
+    public static boolean FAST_LEAF_DECAY;
+
+    @Config.Comment("[SERVER] The amount of ticks every leave needs to decay (Lower is faster)")
+    @Config.DefaultInt(21)
+    @Config.NoSync
+    public static int DECAY_SPEED;
+
+    @Config.Comment({"[SERVER] A random number from 0 to (this config value) will be added to the decay speed for every leaf block.",
+                     "Setting this to 0 will decay leaves rather linear while higher numbers will let the whole thing look more natural"})
+    @Config.DefaultInt(15)
+    @Config.NoSync
+    public static int DECAY_FUZZ;
+
     static {
         ConfigurationManager.selfInit();
     }

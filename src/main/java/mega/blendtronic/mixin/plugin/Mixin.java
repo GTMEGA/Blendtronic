@@ -121,6 +121,10 @@ public enum Mixin implements IMixin {
     client_fancyfurnace_BlockFurnaceMixin(CLIENT, always(), "fancyfurnace.BlockFurnaceMixin"),
     common_fancyfurnace_TileEntityFurnace(COMMON, always(), "fancyfurnace.TileEntityFurnaceMixin"),
     // endregion
+
+    // region Fast Leaf Decay
+    common_FastLeafDecay_BlockLeavesBaseMixin(COMMON, always(), "FastLeafDecay.BlockLeavesBaseMixin"),
+    // endregion
     ;
 
     @Getter
