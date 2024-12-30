@@ -109,6 +109,11 @@ public final class MinecraftConfig {
     @Config.NoSync
     public static int DECAY_FUZZ;
 
+    @Config.Comment("[BOTH] Make hopper hitboxes match their shape")
+    @Config.DefaultBoolean(true)
+    @Config.NoSync
+    public static boolean dietHoppers;
+
     static {
         ConfigurationManager.selfInit();
     }

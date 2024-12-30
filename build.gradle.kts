@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.4.0")
+    implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.5.7")
 
     compileOnly("com.gtnewhorizons.retrofuturabootstrap:RetroFuturaBootstrap:1.0.7")
 
