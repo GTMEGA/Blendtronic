@@ -38,6 +38,7 @@ import static mega.blendtronic.config.MinecraftConfig.*;
 import static mega.blendtronic.config.ModConfig.buildCraftChuteImprovements;
 import static mega.blendtronic.config.ModConfig.extraUtilitiesBlockBreakingRegistryFix;
 import static mega.blendtronic.config.ModConfig.optiFineSunAngleFix;
+import static mega.blendtronic.config.ModConfig.ic2ChargepadBaubleSupport;
 import static mega.blendtronic.mixin.plugin.TargetedMod.*;
 
 @RequiredArgsConstructor
@@ -49,6 +50,7 @@ public enum Mixin implements IMixin {
     common_misc_WorldUpdateEntitiesRemoveAllMixin(COMMON, avoid(FASTCRAFT).and(condition(() -> worldUpdateEntitiesRemoveAllMixin)), "misc.WorldUpdateEntitiesRemoveAllMixin"),
     common_misc_BoatDamageRedirectMixin(COMMON, condition(() -> boatDamageRedirect), "misc.BoatDamageRedirectMixin"),
     common_misc_DietHopper_BlockHopperMixin(COMMON, condition(() -> dietHoppers), "misc.DietHopper_BlockHopperMixin"),
+    common_misc_IC2ChargepadBaubleSupportMixin(COMMON, require(IC2).and(require(BAUBLES)).and(condition(() -> ic2ChargepadBaubleSupport)), "misc.IC2ChargepadBaubleSupportMixin"),
 
     client_misc_GameOverFullscreenFix(CLIENT, condition(() -> guiGameOverInitGuiMixin), "misc.GameOverFullscreenFix"),
     client_misc_OpenALNativeCrashFix(CLIENT, condition(() -> openALNativeCrashFix), "misc.OpenALNativeCrashFix"),

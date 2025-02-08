@@ -50,6 +50,11 @@ public final class ModConfig {
     @Config.DefaultBoolean(true)
     public static boolean buildCraftChuteImprovements;
 
+    @Config.Comment("[BOTH] Makes IC2 Chargepads aware of bauble slots")
+    @Config.DefaultBoolean(true)
+    @Config.NoSync
+    public static boolean ic2ChargepadBaubleSupport;
+
     static {
         ConfigurationManager.selfInit();
     }

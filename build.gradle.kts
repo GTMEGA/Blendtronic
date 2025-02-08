@@ -39,6 +39,8 @@ repositories {
     exclusive(mavenpattern(), "com.falsepattern")
     exclusive(maven("mega_uploads", "https://mvn.falsepattern.com/gtmega_uploads"), "optifine")
     exclusive(maven("horizon", "https://mvn.falsepattern.com/horizon"), "com.gtnewhorizons.retrofuturabootstrap")
+    ic2EX()
+    modrinthEX()
 }
 
 dependencies {
@@ -61,4 +63,7 @@ dependencies {
 
     // BiblioCraft 1.11.7
     compileOnly(deobfCurse("bibliocraft-228027:2423369"))
+
+    compileOnly(deobfModrinth("baubles-expanded:2.1.4"))
+    compileOnly(ic2)
 }
