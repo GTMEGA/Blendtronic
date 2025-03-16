@@ -72,6 +72,7 @@ public enum Mixin implements IMixin {
     common_netcode_S18PacketEntityTeleportMixin(COMMON, condition(() -> entityNetcodeImprovements), "netcode.packets.S18PacketEntityTeleportMixin"),
     common_netcode_S19PacketEntityHeadLookMixin(COMMON, condition(() -> entityNetcodeImprovements), "netcode.packets.S19PacketEntityHeadLookMixin"),
     common_netcode_EntityTrackerEntityMixin(COMMON, condition(() -> entityNetcodeImprovements), "netcode.EntityTrackerEntityMixin"),
+    common_netcode_NetHandlerPlayServerMixin(COMMON, condition(() -> BlockPlacementCrashFix), "netcode.NetHandlerPlayServerMixin"),
 
     common_netcode_EntityMixin(CLIENT, condition(() -> entityNetcodeImprovements), "netcode.EntityMixin"),
     common_netcode_NetHandlerPlayClientMixin(CLIENT, condition(() -> entityNetcodeImprovements), "netcode.NetHandlerPlayClientMixin"),

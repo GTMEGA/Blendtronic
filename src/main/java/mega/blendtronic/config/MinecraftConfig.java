@@ -68,6 +68,10 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean entityNetcodeImprovements;
 
+    @Config.Comment("[BOTH] Fixes crash when processing blockPlacement if container is invalid")
+    @Config.DefaultBoolean(true)
+    public static boolean BlockPlacementCrashFix;
+
     @Config.Comment("[BOTH] Implements the ExtendedTileEntity interface on top of TileEntity.\n" +
                     "This does nothing on it's own, but other fixes may depend on it.")
     @Config.DefaultBoolean(true)
