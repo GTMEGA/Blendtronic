@@ -21,7 +21,7 @@ public abstract class IC2ChargepadBaubleSupportMixin extends TileEntityChargepad
 
     @Inject(method = "getItems",
             at = @At("RETURN"),
-            require = 4)
+            require = 1)
     private void injectBaublesCharge(EntityPlayer player, CallbackInfo ci) {
         val baubles = PlayerHandler.getPlayerBaubles(player);
         for (val bauble : baubles.stackList) {
