@@ -265,10 +265,6 @@ public abstract class EntityTrackerEntityMixin implements AccurateEntityTrackerE
                 float acc$rotYaw = this.myEntity.rotationYaw;
                 float acc$rotPitch = this.myEntity.rotationPitch;
 
-                double acc$xDelta = acc$xPos - this.accurate$lastScaledXPosition;
-                double acc$yDelta = acc$yPos - this.accurate$lastScaledYPosition;
-                double acc$zDelta = acc$zPos - this.accurate$lastScaledZPosition;
-
                 Packet packet = null;
                 boolean significantMotion = Math.abs(xDelta) >= 4 || Math.abs(yDelta) >= 4 || Math.abs(zDelta) >= 4 || this.ticks % 60 == 0;
                 boolean significantRotation = Math.abs(rotYaw - this.lastYaw) >= 4 || Math.abs(rotPitch - this.lastPitch) >= 4;
@@ -277,11 +273,11 @@ public abstract class EntityTrackerEntityMixin implements AccurateEntityTrackerE
                     if (xDelta >= -128 && xDelta < 128 && yDelta >= -128 && yDelta < 128 && zDelta >= -128 && zDelta < 128 && (this.ticks - this.ticksSinceLastForcedTeleport) <= 20 && !this.ridingEntity) {
                         if (significantMotion && significantRotation) {
                             packet = new S14PacketEntity.S17PacketEntityLookMove(this.myEntity.getEntityId(), (byte)xDelta, (byte)yDelta, (byte)zDelta, (byte)rotYaw, (byte)rotPitch);
-                            ((AccuratePositionContainer)packet).accurate$pos(acc$xDelta, acc$yDelta, acc$zDelta);
+                            ((AccuratePositionContainer)packet).accurate$pos(acc$xPos, acc$yPos, acc$zPos);
                             ((AccurateRotationContainer)packet).accurate$rotation(acc$rotYaw, acc$rotPitch);
                         } else if (significantMotion) {
                             packet = new S14PacketEntity.S15PacketEntityRelMove(this.myEntity.getEntityId(), (byte)xDelta, (byte)yDelta, (byte)zDelta);
-                            ((AccuratePositionContainer)packet).accurate$pos(acc$xDelta, acc$yDelta, acc$zDelta);
+                            ((AccuratePositionContainer)packet).accurate$pos(acc$xPos, acc$yPos, acc$zPos);
                         } else if (significantRotation) {
                             packet = new S14PacketEntity.S16PacketEntityLook(this.myEntity.getEntityId(), (byte)rotYaw, (byte)rotPitch);
                             ((AccurateRotationContainer)packet).accurate$rotation(acc$rotYaw, acc$rotPitch);

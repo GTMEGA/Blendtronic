@@ -212,16 +212,12 @@ public abstract class NetHandlerPlayClientMixin {
 
             val serverPosContainer = (AccurateEntityServerPos)entity;
 
-            val dX = packetPos.accurate$posX();
-            val dY = packetPos.accurate$posY();
-            val dZ = packetPos.accurate$posZ();
-
             val yaw = packet.func_149060_h() ? packetRot.accurate$rotationYaw() : entity.rotationYaw;
             val pitch = packet.func_149060_h() ? packetRot.accurate$rotationPitch() : entity.rotationPitch;
 
-            val sX = serverPosContainer.accurate$serverPosX() + dX;
-            val sY = serverPosContainer.accurate$serverPosY() + dY;
-            val sZ = serverPosContainer.accurate$serverPosZ() + dZ;
+            val sX = packetPos.accurate$posX();
+            val sY = packetPos.accurate$posY();
+            val sZ = packetPos.accurate$posZ();
 
             serverPosContainer.accurate$serverPos(sX, sY, sZ);
 
