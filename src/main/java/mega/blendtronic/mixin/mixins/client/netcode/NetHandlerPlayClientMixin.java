@@ -23,6 +23,7 @@
 
 package mega.blendtronic.mixin.mixins.client.netcode;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import mega.blendtronic.modules.netcode.AccurateEntityServerPos;
 import mega.blendtronic.modules.netcode.AccurateMotionContainer;
 import mega.blendtronic.modules.netcode.AccuratePositionContainer;
@@ -35,6 +36,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -62,10 +64,10 @@ public abstract class NetHandlerPlayClientMixin {
     @Shadow private WorldClient clientWorldController;
 
     @Inject(method = "handleSpawnPlayer",
-            at = @At("RETURN"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
+            at = @At(value = "INVOKE",
+                     target = "Lnet/minecraft/client/multiplayer/WorldClient;addEntityToWorld(ILnet/minecraft/entity/Entity;)V"),
             require = 1)
-    private void onHandleSpawnPlayer(S0CPacketSpawnPlayer packet, CallbackInfo ci, double d0, double d1, double d2, float f, float f1, GameProfile gameprofile, EntityOtherPlayerMP entityotherplayermp, int i, List list) {
+    private void onHandleSpawnPlayer(S0CPacketSpawnPlayer packet, CallbackInfo ci, @Local EntityOtherPlayerMP entityotherplayermp) {
         val packetPos = (AccuratePositionContainer)packet;
         val packetRot = (AccurateRotationContainer)packet;
 
@@ -80,14 +82,13 @@ public abstract class NetHandlerPlayClientMixin {
         entityPos.accurate$serverPosY(y);
         entityPos.accurate$serverPosZ(z);
 
-        entityotherplayermp.setLocationAndAngles(x, y, z, yaw, pitch);
+        entityotherplayermp.setPositionAndRotation(x, y, z, yaw, pitch);
     }
 
     @Inject(method = "handleSpawnObject",
             at = @At("RETURN"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
             require = 1)
-    private void onHandleSpawnObject(S0EPacketSpawnObject packet, CallbackInfo ci, double d0, double d1, double d2, Object object) {
+    private void onHandleSpawnObject(S0EPacketSpawnObject packet, CallbackInfo ci, @Local Object object) {
         if (object == null) {
             return;
         }
@@ -108,16 +109,18 @@ public abstract class NetHandlerPlayClientMixin {
 
         ((AccurateEntityServerPos)entity).accurate$serverPos(x, y, z);
 
-        entity.setLocationAndAngles(x, y, z, yaw, pitch);
-
-        entity.setVelocity(motionX, motionY, motionZ);
+        entity.rotationPitch = pitch;
+        entity.rotationYaw = yaw;
+        if (packet.func_149009_m() > 0) {
+            entity.setVelocity(motionX, motionY, motionZ);
+        }
     }
 
     @Inject(method = "handleSpawnMob",
-            at = @At("RETURN"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
+            at = @At(value = "INVOKE",
+                     target = "Lnet/minecraft/client/multiplayer/WorldClient;addEntityToWorld(ILnet/minecraft/entity/Entity;)V"),
             require = 1)
-    private void onHandleSpawnMob(S0FPacketSpawnMob packet, CallbackInfo ci, double d0, double d1, double d2, float f, float f1, EntityLivingBase entitylivingbase) {
+    private void onHandleSpawnMob(S0FPacketSpawnMob packet, CallbackInfo ci, @Local EntityLivingBase entitylivingbase) {
         val packetPos = (AccuratePositionContainer)packet;
         val packetRot = (AccurateRotationContainer)packet;
         val packetMotion = (AccurateMotionContainer)packet;
@@ -133,38 +136,30 @@ public abstract class NetHandlerPlayClientMixin {
 
         ((AccurateEntityServerPos)entitylivingbase).accurate$serverPos(x, y, z);
 
-        entitylivingbase.setLocationAndAngles(x, y, z, yaw, pitch);
+        entitylivingbase.setPositionAndRotation(x, y, z, yaw, pitch);
 
         entitylivingbase.setVelocity(motionX, motionY, motionZ);
     }
 
     @Inject(method = "handleSpawnExperienceOrb",
-            at = @At("RETURN"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
+            at = @At(value = "INVOKE",
+                     target = "Lnet/minecraft/client/multiplayer/WorldClient;addEntityToWorld(ILnet/minecraft/entity/Entity;)V"),
             require = 1)
-    private void onHandleSpawnExperienceOrb(S11PacketSpawnExperienceOrb packet, CallbackInfo ci, EntityXPOrb entityxporb) {
+    private void onHandleSpawnExperienceOrb(S11PacketSpawnExperienceOrb packet, CallbackInfo ci, @Local EntityXPOrb entityxporb) {
         val packetPos = (AccuratePositionContainer)packet;
-        val packetMotion = (AccurateMotionContainer)packet;
 
         val x = packetPos.accurate$posX();
         val y = packetPos.accurate$posY();
         val z = packetPos.accurate$posZ();
 
-        val motionX = packetMotion.accurate$motionX();
-        val motionY = packetMotion.accurate$motionY();
-        val motionZ = packetMotion.accurate$motionZ();
-
         ((AccurateEntityServerPos)entityxporb).accurate$serverPos(x, y, z);
-
-        entityxporb.setLocationAndAngles(x, y, z, entityxporb.rotationYaw, entityxporb.rotationPitch);
-        entityxporb.setVelocity(motionX, motionY, motionZ);
     }
 
     @Inject(method = "handleSpawnGlobalEntity",
-            at = @At("RETURN"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
+            at = @At(value = "INVOKE",
+                     target = "Lnet/minecraft/client/multiplayer/WorldClient;addWeatherEffect(Lnet/minecraft/entity/Entity;)Z"),
             require = 1)
-    private void onHandleSpawnGlobalEntity(S2CPacketSpawnGlobalEntity packet, CallbackInfo ci, double d0, double d1, double d2, EntityLightningBolt entitylightningbolt) {
+    private void onHandleSpawnGlobalEntity(S2CPacketSpawnGlobalEntity packet, CallbackInfo ci, @Local EntityLightningBolt entitylightningbolt) {
         if (entitylightningbolt == null) {
             return;
         }
@@ -176,15 +171,13 @@ public abstract class NetHandlerPlayClientMixin {
         val z = packetPos.accurate$posZ();
 
         ((AccurateEntityServerPos)entitylightningbolt).accurate$serverPos(x, y, z);
-
-        entitylightningbolt.setLocationAndAngles(x, y, z, entitylightningbolt.rotationYaw, entitylightningbolt.rotationPitch);
     }
 
     @Inject(method = "handleEntityVelocity",
-            at = @At("RETURN"),
-            locals = LocalCapture.CAPTURE_FAILHARD,
+            at = @At(value = "INVOKE",
+                     target = "Lnet/minecraft/entity/Entity;setVelocity(DDD)V"),
             require = 1)
-    private void onHandleEntityVelocity(S12PacketEntityVelocity packet, CallbackInfo ci, Entity entity) {
+    private void onHandleEntityVelocity(S12PacketEntityVelocity packet, CallbackInfo ci, @Local Entity entity) {
         if (entity == null) {
             return;
         }
@@ -196,6 +189,13 @@ public abstract class NetHandlerPlayClientMixin {
         val motionZ = packetMotion.accurate$motionZ();
 
         entity.setVelocity(motionX, motionY, motionZ);
+    }
+
+    @Redirect(method = "handleEntityVelocity",
+              at = @At(value = "INVOKE",
+                       target = "Lnet/minecraft/entity/Entity;setVelocity(DDD)V"))
+    private void killHandleEntityVelocitySet(Entity instance, double x, double y, double z) {
+
     }
 
     /**
