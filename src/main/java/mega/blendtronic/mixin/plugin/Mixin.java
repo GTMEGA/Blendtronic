@@ -42,6 +42,9 @@ import static mega.blendtronic.mixin.plugin.TargetedMod.*;
 
 @RequiredArgsConstructor
 public enum Mixin implements IMixin {
+    // region Event
+    client_event_GuiScreenMixin(CLIENT, condition(() -> tooltipEventHook), "event.GuiScreenMixin"),
+    // endregion
     // region Misc
     common_misc_EntityPickupDropMixin(COMMON, condition(() -> entityLivingDropLootOnDespawnMixin), "misc.EntityPickupDropMixin"),
     common_misc_NullSafeGetBlockLightMixin(COMMON, condition(() -> worldGetBlockLightValueNpeMixin), "misc.NullSafeGetBlockLightMixin"),

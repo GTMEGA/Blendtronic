@@ -117,6 +117,11 @@ public final class MinecraftConfig {
     @Config.NoSync
     public static boolean dietHoppers;
 
+    @Config.Comment("[CLIENT] Inject RenderTooltipEvent hooks into GuiScreen tooltip renderer")
+    @Config.DefaultBoolean(true)
+    @Config.NoSync
+    public static boolean tooltipEventHook;
+
     static {
         ConfigurationManager.selfInit();
     }
