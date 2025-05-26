@@ -44,13 +44,13 @@ repositories {
 }
 
 dependencies {
-    implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.5.7")
+    implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.6.1")
 
     compileOnly("com.gtnewhorizons.retrofuturabootstrap:RetroFuturaBootstrap:1.0.7")
 
     compileOnly(deobf("optifine:optifine:1.7.10_hd_u_e7"))
 
-    implementation("it.unimi.dsi:fastutil:8.5.13")
+    implementation("it.unimi.dsi:fastutil:8.5.15")
 
     // Extra Utilities 1.2.12
     compileOnly(deobfCurse("extra-utilities-225561:2264383"))
