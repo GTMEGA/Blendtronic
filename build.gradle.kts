@@ -8,15 +8,22 @@ minecraft_fp {
     java {
         compatibility = jabel
     }
+
     mod {
         modid   = "blendtronic"
         name    = "Blendtronic"
         rootPkg = "$group.blendtronic"
     }
+
+    api {
+        packages = listOf("api")
+    }
+
     mixin {
         pkg          = "mixin.mixins"
         pluginClass  = "mixin.plugin.MixinPlugin"
     }
+
     core {
         accessTransformerFile = "blendtronic_at.cfg"
         coreModClass = "asm.CoreLoadingPlugin"
