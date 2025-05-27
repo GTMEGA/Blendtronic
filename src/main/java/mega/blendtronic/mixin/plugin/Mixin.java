@@ -51,6 +51,8 @@ public enum Mixin implements IMixin {
     common_misc_DietHopper_BlockHopperMixin(COMMON, condition(() -> dietHoppers), "misc.DietHopper_BlockHopperMixin"),
     common_misc_IC2ChargepadBaubleSupportMixin(COMMON, require(IC2).and(require(BAUBLES)).and(condition(() -> ic2ChargepadBaubleSupport)), "misc.IC2ChargepadBaubleSupportMixin"),
 
+    common_misc_NullSafeGetTE_WorldMixin(COMMON, condition(() -> nullSafeGetTE), "misc.NullSafeGetTE_WorldMixin"),
+
     client_misc_GameOverFullscreenFix(CLIENT, condition(() -> guiGameOverInitGuiMixin), "misc.GameOverFullscreenFix"),
     client_misc_OpenALNativeCrashFix(CLIENT, condition(() -> openALNativeCrashFix), "misc.OpenALNativeCrashFix"),
     client_misc_SoundManagerCrashFix(CLIENT, condition(() -> soundManagerCrashFix), "misc.SoundManagerCrashFix"),

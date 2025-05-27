@@ -117,6 +117,11 @@ public final class MinecraftConfig {
     @Config.NoSync
     public static boolean dietHoppers;
 
+    @Config.Comment("[BOTH] Fixes a potential crash if the world tile entity list contains a null.")
+    @Config.DefaultBoolean(true)
+    @Config.NoSync
+    public static boolean nullSafeGetTE;
+
     static {
         ConfigurationManager.selfInit();
     }
