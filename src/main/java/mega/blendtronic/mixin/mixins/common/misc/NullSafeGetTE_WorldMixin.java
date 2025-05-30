@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 @Mixin(World.class)
@@ -53,17 +54,23 @@ public abstract class NullSafeGetTE_WorldMixin {
     private void cleanTEListFromNulls(CallbackInfoReturnable<TileEntity> cir,
                                       @Share("hadNullTE") LocalBooleanRef hadNullTE) {
         if (hadNullTE.get()) {
-            val it = this.addedTileEntityList.iterator();
-
             var removed = 0;
-            var i = 0;
-            while (it.hasNext()) {
-                if (it.next() == null) {
-                    it.remove();
-                    removed++;
-                    mega.blendtronic.Share.LOG.trace("Removed null TE at index: [{}]", i);
+            for (int retry = 0; retry < 3; retry++) {
+                try {
+                    val it = this.addedTileEntityList.iterator();
+                    var i = 0;
+                    while (it.hasNext()) {
+                        if (it.next() == null) {
+                            it.remove();
+                            removed++;
+                            mega.blendtronic.Share.LOG.trace("Removed null TE at index: [{}]", i);
+                        }
+                        i++;
+                    }
+                    break;
+                } catch (ConcurrentModificationException cme) {
+                    mega.blendtronic.Share.LOG.warn("CME while cleaning TE list", cme);
                 }
-                i++;
             }
 
             mega.blendtronic.Share.LOG.warn("Removed :[{}] null TEs from World", removed);
