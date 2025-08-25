@@ -113,6 +113,10 @@ public enum Mixin implements IMixin {
     client_thaumcraft_TileNodeRendererMixin(CLIENT, require(THAUMCRAFT), "thaumcraft.TileNodeRendererMixin"),
     // endregion
 
+    // region Gadomancy
+    client_thaumcraft_RenderTileNodeBasic(CLIENT, require(GADOMANCY), "gadomancy.RenderTileNodeBasicMixin"),
+    // endregion
+
     // region BiblioCraft
     common_bibliocraft_FileUtilMixin(COMMON, require(BIBLIOCRAFT), "bibliocraft.FileUtilMixin"),
 

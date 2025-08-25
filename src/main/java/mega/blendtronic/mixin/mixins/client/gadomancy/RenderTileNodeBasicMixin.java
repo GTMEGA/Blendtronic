@@ -1,8 +1,8 @@
-package mega.blendtronic.mixin.mixins.client.thaumcraft;
+package mega.blendtronic.mixin.mixins.client.gadomancy;
 
-import baubles.api.BaublesApi;
 import baubles.common.lib.PlayerHandler;
 import lombok.val;
+import makeo.gadomancy.client.renderers.tile.RenderTileNodeBasic;
 import mega.blendtronic.Share;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,18 +11,18 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.nodes.IRevealer;
 import thaumcraft.api.nodes.NodeModifier;
 import thaumcraft.api.nodes.NodeType;
-import thaumcraft.client.renderers.tile.TileNodeRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 
-@Mixin(TileNodeRenderer.class)
-public abstract class TileNodeRendererMixin {
-    @Redirect(method = "renderTileEntityAt",
+@Mixin(RenderTileNodeBasic.class)
+public abstract class RenderTileNodeBasicMixin {
+    @Redirect(method = "renderTileEntityAt(Lnet/minecraft/tileentity/TileEntity;DDDFF)V",
               at = @At(value = "INVOKE",
-                       target = "Lthaumcraft/client/renderers/tile/TileNodeRenderer;renderNode(Lnet/minecraft/entity/EntityLivingBase;DZZFIIIFLthaumcraft/api/aspects/AspectList;Lthaumcraft/api/nodes/NodeType;Lthaumcraft/api/nodes/NodeModifier;)V"),
+                       target = "Lmakeo/gadomancy/client/renderers/tile/RenderTileNodeBasic;renderNode(Lnet/minecraft/entity/EntityLivingBase;DZZFDDDFLthaumcraft/api/aspects/AspectList;Lthaumcraft/api/nodes/NodeType;Lthaumcraft/api/nodes/NodeModifier;)V"),
+              remap = false,
               require = 1)
-    private void injectBaublesCheck(EntityLivingBase viewer, double viewDistance, boolean visible, boolean depthIgnore, float size, int x, int y, int z, float partialTicks, AspectList aspects, NodeType type, NodeModifier mod) {
+    private static void injectBaublesCheck(EntityLivingBase viewer, double viewDistance, boolean visible, boolean depthIgnore, float size, double x, double y, double z, float partialTicks, AspectList aspects, NodeType type, NodeModifier mod) {
         val player = Minecraft.getMinecraft().thePlayer;
 
         if (!visible && !depthIgnore) {
@@ -48,6 +48,6 @@ public abstract class TileNodeRendererMixin {
             }
         }
 
-        TileNodeRenderer.renderNode(viewer, viewDistance, visible, depthIgnore, size, x, y, z, partialTicks, aspects, type, mod);
+        RenderTileNodeBasic.renderNode(viewer, viewDistance, visible, depthIgnore, size, x, y, z, partialTicks, aspects, type, mod);
     }
 }
