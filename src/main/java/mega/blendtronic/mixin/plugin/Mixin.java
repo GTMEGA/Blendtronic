@@ -108,6 +108,7 @@ public enum Mixin implements IMixin {
     common_buildcraft_TileHopperMixin(COMMON, require(BUILDCRAFT).and(condition(() -> buildCraftChuteImprovements)), "buildcraft.TileHopperMixin"),
 
     common_thaumcraft_TileCruicble(COMMON,require(THAUMCRAFT),"thaumcraft.TileCrucibleMixin"),
+    common_thaumcraft_IRevealerMixin(COMMON, require(THAUMCRAFT), "thaumcraft.IRevealerMixin"),
     // endregion
 
     // region BiblioCraft
