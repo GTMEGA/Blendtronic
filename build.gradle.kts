@@ -66,11 +66,14 @@ dependencies {
     compileOnly(deobfCurse("buildcraft-61811:4055732"))
 
     // Thaumcraft 4.2.3.5
-    compileOnly(deobfCurse("thaumcraft-223628:2227552"))
+    implementation(deobfCurse("thaumcraft-223628:2227552"))
+
+    // Gadomancy 1.0.7.3
+    compileOnly(deobfCurse("gadomancy-237271:2338768"))
 
     // BiblioCraft 1.11.7
     compileOnly(deobfCurse("bibliocraft-228027:2423369"))
 
-    compileOnly(deobfModrinth("baubles-expanded:2.1.4"))
+    implementation(deobfModrinth("baubles-expanded:2.1.4"))
     compileOnly(ic2)
 }
