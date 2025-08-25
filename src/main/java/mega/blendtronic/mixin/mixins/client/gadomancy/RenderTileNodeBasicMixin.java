@@ -32,16 +32,12 @@ public abstract class RenderTileNodeBasicMixin {
                 return;
             }
 
-            Share.LOG.info("Found {} baubles", baubles.getSizeInventory());
-
             for (int i = 0; i < baubles.getSizeInventory(); i++) {
                 val bauble = baubles.getStackInSlot(i);
 
                 if (bauble != null && bauble.getItem() instanceof IRevealer) {
                     visible = true;
                     depthIgnore = true;
-
-                    Share.LOG.info("FOUND goggles: {}", bauble);
 
                     break;
                 }
