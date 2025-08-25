@@ -35,9 +35,11 @@ public abstract class TileNodeRendererMixin {
             for (int i = 0; i < baubles.getSizeInventory(); i++) {
                 val bauble = baubles.getStackInSlot(i);
 
-                if (bauble != null && bauble.getItem() instanceof IRevealer) {
-                    visible = true;
-                    depthIgnore = true;
+                if (bauble != null && bauble.getItem() instanceof IRevealer revealer) {
+                    val doRender = revealer.showNodes(bauble, player);
+
+                    visible = doRender;
+                    depthIgnore = doRender;
 
                     break;
                 }
