@@ -8,9 +8,8 @@ import thaumcraft.api.nodes.IRevealer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-@Mixin(IRevealer.class)
-@SuppressWarnings("all")
-public abstract interface IRevealerMixin extends IBaubleExpanded {
+@Mixin(value = IRevealer.class, remap = false)
+public interface IRevealerMixin extends IBaubleExpanded {
     @Override
     default String[] getBaubleTypes(ItemStack itemStack) {
         return new String[] { "revealing" };

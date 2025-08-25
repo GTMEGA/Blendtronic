@@ -109,6 +109,8 @@ public enum Mixin implements IMixin {
 
     common_thaumcraft_TileCruicble(COMMON,require(THAUMCRAFT),"thaumcraft.TileCrucibleMixin"),
     common_thaumcraft_IRevealerMixin(COMMON, require(THAUMCRAFT), "thaumcraft.IRevealerMixin"),
+
+    client_thaumcraft_TileNodeRendererMixin(CLIENT, require(THAUMCRAFT), "thaumcraft.TileNodeRendererMixin"),
     // endregion
 
     // region BiblioCraft
