@@ -53,6 +53,7 @@ public enum Mixin implements IMixin {
     common_misc_BoatDamageRedirectMixin(COMMON, condition(() -> boatDamageRedirect), "misc.BoatDamageRedirectMixin"),
     common_misc_DietHopper_BlockHopperMixin(COMMON, condition(() -> dietHoppers), "misc.DietHopper_BlockHopperMixin"),
     common_misc_IC2ChargepadBaubleSupportMixin(COMMON, require(IC2).and(require(BAUBLES)).and(condition(() -> ic2ChargepadBaubleSupport)), "misc.IC2ChargepadBaubleSupportMixin"),
+    common_misc_DisableNetherPortal_BlockPortal(COMMON, condition(() -> disablePortalCreation), "misc.DisableNetherPortal_BlockPortal"),
 
     common_misc_NullSafeGetTE_WorldMixin(COMMON, condition(() -> nullSafeGetTE), "misc.NullSafeGetTE_WorldMixin"),
 

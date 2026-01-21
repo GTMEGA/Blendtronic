@@ -127,6 +127,10 @@ public final class MinecraftConfig {
     @Config.NoSync
     public static boolean nullSafeGetTE;
 
+    @Config.Comment("[BOTH] Disables creating nether portals")
+    @Config.DefaultBoolean(true)
+    public static boolean disablePortalCreation;
+
     static {
         ConfigurationManager.selfInit();
     }
