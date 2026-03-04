@@ -131,6 +131,10 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean disablePortalCreation;
 
+    @Config.Comment("[BOTH] Faster NBT Compounds")
+    @Config.DefaultBoolean(true)
+    public static boolean fasterNbt;
+
     static {
         ConfigurationManager.selfInit();
     }
