@@ -142,6 +142,10 @@ public enum Mixin implements IMixin {
     // region Fast Leaf Decay
     common_FastLeafDecay_BlockLeavesBaseMixin(COMMON, always(), "FastLeafDecay.BlockLeavesBaseMixin"),
     // endregion
+
+    common_evilbed_BlockBedMixin(COMMON, always(), "evilbed.BlockBedMixin"),
+    common_evilbed_ExplosionMixin(COMMON, always(), "evilbed.ExplosionMixin"),
+
     ;
 
     @Getter

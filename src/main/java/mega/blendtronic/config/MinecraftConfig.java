@@ -135,6 +135,10 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean fasterNbt;
 
+    @Config.Comment("[BOTH] Evil Beds")
+    @Config.DefaultBoolean(false)
+    public static boolean evilBeds;
+
     static {
         ConfigurationManager.selfInit();
     }

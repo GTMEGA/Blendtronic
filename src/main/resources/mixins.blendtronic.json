@@ -5,6 +5,7 @@
   "plugin": "mega.blendtronic.mixin.plugin.MixinPlugin",
   "refmap": "mixins.blendtronic.refmap.json",
   "target": "@env(DEFAULT)",
+  "mixinextras": {"minVersion": "0.5.0"},
   "compatibilityLevel": "JAVA_8"
 }
 
