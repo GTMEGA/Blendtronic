@@ -1,12 +1,14 @@
 plugins {
-    id("com.falsepattern.fpgradle-mc") version("0.15.1")
+    // TODO: Workaround for jvmdowngrader+J25, will be fixed in future fpgradle
+    id("xyz.wagyourtail.jvmdowngrader") version "1.3.6" apply false
+    id("com.falsepattern.fpgradle-mc") version("4.0.0")
 }
 
 group = "mega"
 
 minecraft_fp {
     java {
-        compatibility = jabel
+        compatibility = jvmDowngrader
     }
 
     mod {
