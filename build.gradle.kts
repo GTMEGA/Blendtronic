@@ -1,7 +1,5 @@
 plugins {
-    // TODO: Workaround for jvmdowngrader+J25, will be fixed in future fpgradle
-    id("xyz.wagyourtail.jvmdowngrader") version "1.3.6" apply false
-    id("com.falsepattern.fpgradle-mc") version("4.0.0")
+    id("com.falsepattern.fpgradle-mc") version("4.0.1")
 }
 
 group = "mega"
