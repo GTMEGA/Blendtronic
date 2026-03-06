@@ -54,7 +54,6 @@ public enum Mixin implements IMixin {
     common_misc_DietHopper_BlockHopperMixin(COMMON, condition(() -> dietHoppers), "misc.DietHopper_BlockHopperMixin"),
     common_misc_IC2ChargepadBaubleSupportMixin(COMMON, require(IC2).and(require(BAUBLES)).and(condition(() -> ic2ChargepadBaubleSupport)), "misc.IC2ChargepadBaubleSupportMixin"),
     common_misc_DisableNetherPortal_BlockPortal(COMMON, condition(() -> disablePortalCreation), "misc.DisableNetherPortal_BlockPortal"),
-    common_misc_FasterNBT_NBTTagCompoundMixin(COMMON, condition(() -> fasterNbt), "misc.FasterNBT_NBTTagCompoundMixin"),
 
     common_misc_NullSafeGetTE_WorldMixin(COMMON, condition(() -> nullSafeGetTE), "misc.NullSafeGetTE_WorldMixin"),
 
@@ -143,8 +142,17 @@ public enum Mixin implements IMixin {
     common_FastLeafDecay_BlockLeavesBaseMixin(COMMON, always(), "FastLeafDecay.BlockLeavesBaseMixin"),
     // endregion
 
+    // region Fast NBT
+    common_fastnbt_NBTTagCompoundAccessor(COMMON, condition(() -> fasterNbt != 0), "fastnbt.NBTTagCompoundAccessor"),
+    common_fastnbt_NBTTagCompoundMixin_Base(COMMON, condition(() -> fasterNbt != 0), "fastnbt.NBTTagCompoundMixin_Base"),
+    common_fastnbt_NBTTagCompoundMixin_ArrayMap(COMMON, condition(() -> fasterNbt == 1), "fastnbt.NBTTagCompoundMixin_ArrayMap"),
+    common_fastnbt_NBTTagCompoundMixin_HashMap(COMMON, condition(() -> fasterNbt == 2), "fastnbt.NBTTagCompoundMixin_HashMap"),
+    // endregion
+
+    // region Evil Bed
     common_evilbed_BlockBedMixin(COMMON, always(), "evilbed.BlockBedMixin"),
     common_evilbed_ExplosionMixin(COMMON, always(), "evilbed.ExplosionMixin"),
+    // endregion
 
     ;
 

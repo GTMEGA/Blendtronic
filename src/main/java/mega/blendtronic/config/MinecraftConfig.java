@@ -131,9 +131,16 @@ public final class MinecraftConfig {
     @Config.DefaultBoolean(true)
     public static boolean disablePortalCreation;
 
-    @Config.Comment("[BOTH] Faster NBT Compounds")
-    @Config.DefaultBoolean(true)
-    public static boolean fasterNbt;
+    @Config.Comment({"[BOTH] Faster NBT Compounds using FastUtil",
+                     "Both an ArrayMap and HashMap implementation are provided",
+                     "Idk which one is really faster.",
+                     "(0=OFF)",
+                     "(1=Object2ObjectArrayMap)",
+                     "(2=Object2ObjectOpenHashMap)"})
+    @Config.DefaultInt(2)
+    @Config.RangeInt(min = 0,
+                     max = 2)
+    public static int fasterNbt;
 
     @Config.Comment("[BOTH] Evil Beds")
     @Config.DefaultBoolean(false)
