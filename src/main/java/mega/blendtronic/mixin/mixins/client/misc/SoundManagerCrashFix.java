@@ -36,7 +36,7 @@ public class SoundManagerCrashFix {
                        target = "Lnet/minecraft/client/audio/SoundPoolEntry;getPitch()D"),
               require = 1)
     private double nullSafeGetPitch(SoundPoolEntry instance) {
-        return instance != null ? instance.getPitch() : 0;
+        return instance == null ? 0 : instance.getPitch();
     }
 
     @Redirect(method = "getNormalizedVolume",
@@ -44,6 +44,6 @@ public class SoundManagerCrashFix {
                        target = "Lnet/minecraft/client/audio/SoundPoolEntry;getVolume()D"),
               require = 1)
     private double nullSafeGetVolume(SoundPoolEntry instance) {
-        return instance != null ? instance.getVolume() : 0;
+        return instance == null ? 0 : instance.getVolume();
     }
 }
